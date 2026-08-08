@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { PenTool } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -69,11 +69,16 @@ function App() {
         <Route path="/service/:id" element={<ServiceDetail />} />
       </Routes>
       <footer>
-        <div className="container footer-content">
+        <div className="container footer-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', textAlign: 'center' }}>
           <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)' }}>
             <img src="/logo.png" alt="Spmdesignz Logo" style={{ height: '30px', width: 'auto' }} /> Spmdesignz
           </div>
-          <p>&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
+          <div className="social-links" style={{ display: 'flex', gap: '1.5rem', margin: '0.5rem 0' }}>
+            <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Facebook size={24} /></a>
+            <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Instagram size={24} /></a>
+            <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Linkedin size={24} /></a>
+          </div>
+          <p style={{ color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
         </div>
       </footer>
     </Router>
