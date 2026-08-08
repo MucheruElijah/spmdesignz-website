@@ -1,26 +1,62 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import posts from '../data/blogPosts.json';
-import { Calendar } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
+
+function getFirstImage(htmlContent) {
+  if (!htmlContent) return '/portfolio_flyer_design.jpg';
+  const match = htmlContent.match(/<img[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1] : '/portfolio_flyer_design.jpg';
+}
+
+function getPlainTextExcerpt(htmlContent, maxLength = 130) {
+  if (!htmlContent) return '';
+  // Strip script tags and HTML tags
+  let text = htmlContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  text = text.replace(/<[^>]+>/g, ' ');
+  text = text.replace(/\s+/g, ' ').trim();
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength) + '...';
+  }
+  return text;
+}
 
 function Blog() {
   return (
     <main className="blog-page">
-      <section className="container" style={{ paddingTop: '150px', minHeight: '80vh' }}>
-        <h1 style={{ color: 'var(--primary-color)', textAlign: 'left', marginBottom: '3rem', fontSize: '3rem' }}>Our Blog</h1>
-        <div className="blog-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {posts.map(post => (
-            <div key={post.id} className="blog-card" style={{ backgroundColor: 'var(--surface-color)', padding: '2rem', borderRadius: '8px', border: '1px solid var(--surface-color-light)', transition: 'transform 0.3s ease' }}>
-              <div className="blog-card-content">
-                <div className="blog-meta" style={{ display: 'flex', gap: '1rem', color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                  <span className="blog-date" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Calendar size={14} /> {new Date(post.published).toLocaleDateString()}</span>
+      <section className="container" style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '80vh' }}>
+        <div className="blog-header" style={{ marginBottom: '3rem' }}>
+          <h1 style={{ color: 'var(--primary-color)', fontSize: '3rem', marginBottom: '0.5rem' }}>Our Blog</h1>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>Insights, tips, and strategies on branding and design.</p>
+        </div>
+
+        <div className="blog-grid">
+          {posts.map(post => {
+            const imageUrl = getFirstImage(post.content);
+            const excerpt = getPlainTextExcerpt(post.content);
+            const postId = post.id.split('-').pop();
+
+            return (
+              <article key={post.id} className="blog-card">
+                <div className="blog-card-image">
+                  <img src={imageUrl} alt={post.title} />
                 </div>
-                <h3 style={{ marginBottom: '1rem', fontSize: '1.5rem', lineHeight: '1.3' }}>{post.title}</h3>
-                <div style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }} dangerouslySetInnerHTML={{ __html: post.content }}></div>
-                <Link to={`/blog/${post.id.split('-').pop()}`} className="btn-outline" style={{ display: 'inline-block', padding: '0.5rem 1rem', borderRadius: '4px', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600 }}>Read More</Link>
-              </div>
-            </div>
-          ))}
+                <div className="blog-card-body">
+                  <div className="blog-meta">
+                    <Calendar size={14} /> 
+                    <span>{new Date(post.published).toLocaleDateString()}</span>
+                  </div>
+                  <h3 className="blog-card-title">{post.title}</h3>
+                  <p className="blog-card-excerpt">{excerpt}</p>
+                  <div className="blog-card-footer">
+                    <Link to={`/blog/${postId}`} className="btn-outline blog-read-more">
+                      Read More <ArrowRight size={16} />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>
