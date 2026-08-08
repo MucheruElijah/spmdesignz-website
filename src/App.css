@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)), url('/hero_background.jpg') center/cover no-repeat;
+  background: linear-gradient(to right, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.1) 100%), url('/hero_background.jpg') center/cover no-repeat;
   margin-top: 0;
   padding-top: 120px;
   padding-bottom: 50px;
