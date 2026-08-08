@@ -83,29 +83,74 @@ function Home() {
       <section id="testimonials" className="testimonials">
         <div className="container">
           <h2>Client Testimonials</h2>
-          <div className="testimonials-grid">
+          <div className="testimonials-slider">
+            
             <div className="testimonial-card">
               <Quote size={32} className="quote-icon" />
-              <p>"Signpost Media completely transformed our brand. The logo and social media kits are stunning and have doubled our online engagement!"</p>
+              <p>"Great experience with the Spmdesignz team, and good communication and efficient work. Also the Spmdesignz team is good at managing the branding design including logos and brand color setting, so he helps us a lot and expect to keep working with him, and recommend him!"</p>
               <div className="client-info">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
                 </div>
-                <h4>Sarah Jenkins</h4>
-                <span>Marketing Director</span>
+                <h4>Tony Lau</h4>
+                <span>CEO at CN International</span>
               </div>
             </div>
+
             <div className="testimonial-card">
               <Quote size={32} className="quote-icon" />
-              <p>"We needed a professional flyer for a major corporate event on a tight deadline. They delivered beyond our expectations. Highly recommended."</p>
+              <p>"Creative design, timely delivery and excellent work"</p>
               <div className="client-info">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
                 </div>
-                <h4>David Chen</h4>
-                <span>Tech Startup Founder</span>
+                <h4>Dennis Muriuki</h4>
+                <span>ERP & CRM Systems Consultant</span>
               </div>
             </div>
+
+            <div className="testimonial-card">
+              <Quote size={32} className="quote-icon" />
+              <p>"The Spmdesignz team's willingness to work with me in real time to produce a document that was needed the following day was impressive! He delivered amazing work!"</p>
+              <div className="client-info">
+                <div className="stars">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
+                </div>
+                <h4>donlca_merriman</h4>
+                <span>United States</span>
+              </div>
+            </div>
+
+            <div className="testimonial-card">
+              <Quote size={32} className="quote-icon" />
+              <p>"Best on the site!"</p>
+              <div className="client-info">
+                <div className="stars">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
+                </div>
+                <h4>blgasa</h4>
+                <span>United States</span>
+              </div>
+            </div>
+
+            <div className="testimonial-card">
+              <Quote size={32} className="quote-icon" />
+              <p>"The Spmdesignz team took our vision for this product and made it a beautiful reality. Her professionalism and brand alignment EXCEEDED our expectations. Quick and proactive communication made working with her marvelous. Already have several projects lined up for her—highly recommend! 🤩"</p>
+              <div className="client-info">
+                <div className="stars">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
+                </div>
+                <h4>csjullen78</h4>
+                <span>Cayman Islands</span>
+              </div>
+            </div>
+
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <a href="https://www.fiverr.com/s/rEV65Gy" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              Hire us on Fiverr <ArrowRight size={20} />
+            </a>
           </div>
         </div>
       </section>

@@ -188,13 +188,31 @@
   background-color: var(--surface-color);
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+.testimonials-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 2rem;
+  padding-bottom: 2rem; /* space for scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--bg-color);
+}
+
+.testimonials-slider::-webkit-scrollbar {
+  height: 8px;
+}
+.testimonials-slider::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 4px;
+}
+.testimonials-slider::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
 }
 
 .testimonial-card {
+  min-width: 400px;
+  scroll-snap-align: start;
   background-color: var(--bg-color);
   padding: 3rem 2.5rem;
   border-radius: 8px;
