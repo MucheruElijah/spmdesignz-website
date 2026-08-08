@@ -52,25 +52,25 @@ function Home() {
           <h2>Our Work</h2>
           <div className="portfolio-grid">
             <div className="portfolio-item">
-              <img src="/src/assets/hero_background.jpg" alt="Corporate Branding" className="placeholder-img" />
+              <img src="/hero_background.jpg" alt="Corporate Branding" className="placeholder-img" />
               <div className="portfolio-overlay">
                 <h3>Corporate Branding</h3>
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/src/assets/portfolio_flyer_design.jpg" alt="Tech Flyer" className="placeholder-img" />
+              <img src="/portfolio_flyer_design.jpg" alt="Tech Flyer" className="placeholder-img" />
               <div className="portfolio-overlay">
                 <h3>Tech Flyer</h3>
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/src/assets/portfolio_logo_design_new.png" alt="Minimalist Logo" className="placeholder-img" />
+              <img src="/portfolio_logo_design_new.png" alt="Minimalist Logo" className="placeholder-img" />
               <div className="portfolio-overlay">
                 <h3>Minimalist Logo</h3>
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/src/assets/portfolio_social_media.jpg" alt="Social Campaign" className="placeholder-img" />
+              <img src="/portfolio_social_media.jpg" alt="Social Campaign" className="placeholder-img" />
               <div className="portfolio-overlay">
                 <h3>Social Campaign</h3>
               </div>

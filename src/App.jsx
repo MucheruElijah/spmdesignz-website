@@ -35,7 +35,7 @@ function Navigation() {
       <div className="nav-container">
         <Link to="/" className="logo">
           <span style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.5rem' }}>
-            <img src="/src/assets/logo.png" alt="Spmdesignz Logo" style={{ height: '40px', width: 'auto' }} /> Spmdesignz
+            <img src="/logo.png" alt="Spmdesignz Logo" style={{ height: '40px', width: 'auto' }} /> Spmdesignz
           </span>
         </Link>
         <ul className="nav-links" style={{ alignItems: 'center' }}>
@@ -71,7 +71,7 @@ function App() {
       <footer>
         <div className="container footer-content">
           <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-            <img src="/src/assets/logo.png" alt="Spmdesignz Logo" style={{ height: '30px', width: 'auto' }} /> Spmdesignz
+            <img src="/logo.png" alt="Spmdesignz Logo" style={{ height: '30px', width: 'auto' }} /> Spmdesignz
           </div>
           <p>&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
         </div>
