@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { Menu, X, MapPin, Phone, Mail } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -77,17 +77,58 @@ function App() {
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/service/:id" element={<ServiceDetail />} />
       </Routes>
-      <footer>
-        <div className="container footer-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', textAlign: 'center' }}>
-          <div className="logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-            <img src="/logo.png" alt="Spmdesignz Logo" style={{ height: '30px', width: 'auto' }} /> Spmdesignz
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          {/* Column 1: Brand, Socials, Copyright */}
+          <div className="footer-col footer-col-brand">
+            <Link to="/" className="footer-logo">
+              <img src="/logo.png" alt="Spmdesignz Logo" />
+              <span>Spmdesignz</span>
+            </Link>
+            <div className="footer-socials">
+              <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook size={22} /></a>
+              <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram size={22} /></a>
+              <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin size={22} /></a>
+            </div>
+            <p className="copyright-text">&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
           </div>
-          <div className="social-links" style={{ display: 'flex', gap: '1.5rem', margin: '0.5rem 0' }}>
-            <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FaFacebook size={24} /></a>
-            <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FaInstagram size={24} /></a>
-            <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FaLinkedin size={24} /></a>
+
+          {/* Column 2: Explore */}
+          <div className="footer-col">
+            <h4 className="footer-heading">Explore</h4>
+            <ul className="footer-links">
+              <li><Link to="/">Home</Link></li>
+              <li><a href="/#services">Services</a></li>
+              <li><a href="/#portfolio">Portfolio</a></li>
+              <li><a href="/#about">About Us</a></li>
+              <li><Link to="/blog">Blog</Link></li>
+            </ul>
           </div>
-          <p style={{ color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
+
+          {/* Column 3: Contact Us */}
+          <div className="footer-col">
+            <h4 className="footer-heading">Contact Us</h4>
+            <ul className="footer-contact-list">
+              <li>
+                <MapPin size={18} className="contact-icon" />
+                <span>P.O. Box 22892, 00100<br />Nairobi, Kenya</span>
+              </li>
+              <li>
+                <Phone size={18} className="contact-icon" />
+                <span>
+                  <a href="tel:0738280809">0738 280 809</a> / <a href="tel:0770223001">0770 223 001</a>
+                </span>
+              </li>
+              <li>
+                <Mail size={18} className="contact-icon" />
+                <a href="mailto:info@spmdesignz.com">info@spmdesignz.com</a>
+              </li>
+              <li>
+                <FaWhatsapp size={18} className="contact-icon whatsapp-icon" />
+                <a href="https://wa.me/254738280809" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </footer>
     </Router>
