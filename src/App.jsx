@@ -86,15 +86,15 @@ function App() {
               <span>Spmdesignz</span>
             </Link>
             <div className="footer-socials">
-              <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook size={22} /></a>
-              <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram size={22} /></a>
-              <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin size={22} /></a>
+              <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook size={20} /></a>
+              <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram size={20} /></a>
+              <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin size={20} /></a>
             </div>
             <p className="copyright-text">&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
           </div>
 
           {/* Column 2: Explore */}
-          <div className="footer-col">
+          <div className="footer-col footer-col-explore">
             <h4 className="footer-heading">Explore</h4>
             <ul className="footer-links">
               <li><Link to="/">Home</Link></li>
@@ -106,7 +106,7 @@ function App() {
           </div>
 
           {/* Column 3: Contact Us */}
-          <div className="footer-col">
+          <div className="footer-col footer-col-contact">
             <h4 className="footer-heading">Contact Us</h4>
             <ul className="footer-contact-list">
               <li>
