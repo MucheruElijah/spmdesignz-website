@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Menu, X } from 'lucide-react';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -29,27 +29,35 @@ function ScrollToHash() {
 function Navigation() {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMobileMenuOpen(false);
   
   return (
     <nav>
       <div className="nav-container">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={closeMenu}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.5rem' }}>
             <img src="/logo.png" alt="Spmdesignz Logo" style={{ height: '40px', width: 'auto' }} /> Spmdesignz
           </span>
         </Link>
-        <ul className="nav-links" style={{ alignItems: 'center' }}>
-          <li><Link to="/">Home</Link></li>
+        
+        <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-active' : ''}`} style={{ alignItems: 'center' }}>
+          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
           {isHome && (
             <>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#about">About Us</a></li>
+              <li><a href="#services" onClick={closeMenu}>Services</a></li>
+              <li><a href="#portfolio" onClick={closeMenu}>Portfolio</a></li>
+              <li><a href="#about" onClick={closeMenu}>About Us</a></li>
             </>
           )}
-          <li><Link to="/blog">Blog</Link></li>
-          <li style={{ display: 'flex', alignItems: 'center', paddingLeft: '1.5rem', borderLeft: '1px solid rgba(255,255,255,0.2)', marginLeft: '0.5rem', height: '30px' }}>
-            <Link to={isHome ? "#contact" : "/#contact"} className="btn" style={{padding: '0.5rem 1rem'}}>Get a Quote</Link>
+          <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
+          <li className="quote-btn-container" style={{ display: 'flex', alignItems: 'center', paddingLeft: '1.5rem', borderLeft: '1px solid rgba(255,255,255,0.2)', marginLeft: '0.5rem', height: '30px' }}>
+            <Link to={isHome ? "#contact" : "/#contact"} className="btn" onClick={closeMenu} style={{padding: '0.5rem 1rem'}}>Get a Quote</Link>
           </li>
         </ul>
       </div>
