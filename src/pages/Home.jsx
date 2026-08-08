@@ -87,7 +87,7 @@ function Home() {
             
             <div className="testimonial-card">
               <Quote size={32} className="quote-icon" />
-              <p>"Great experience with the Spmdesignz team, and good communication and efficient work. Also the Spmdesignz team is good at managing the branding design including logos and brand color setting, so he helps us a lot and expect to keep working with him, and recommend him!"</p>
+              <p>"Great experience with the Spmdesignz team, and good communication and efficient work. Also the Spmdesignz team is good at managing the branding design including logos and brand color setting, so they help us a lot and expect to keep working with them, and recommend them!"</p>
               <div className="client-info">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
@@ -111,7 +111,7 @@ function Home() {
 
             <div className="testimonial-card">
               <Quote size={32} className="quote-icon" />
-              <p>"The Spmdesignz team's willingness to work with me in real time to produce a document that was needed the following day was impressive! He delivered amazing work!"</p>
+              <p>"The Spmdesignz team's willingness to work with me in real time to produce a document that was needed the following day was impressive! They delivered amazing work!"</p>
               <div className="client-info">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
@@ -135,7 +135,7 @@ function Home() {
 
             <div className="testimonial-card">
               <Quote size={32} className="quote-icon" />
-              <p>"The Spmdesignz team took our vision for this product and made it a beautiful reality. Her professionalism and brand alignment EXCEEDED our expectations. Quick and proactive communication made working with her marvelous. Already have several projects lined up for her—highly recommend! 🤩"</p>
+              <p>"The Spmdesignz team took our vision for this product and made it a beautiful reality. Their professionalism and brand alignment EXCEEDED our expectations. Quick and proactive communication made working with them marvelous. Already have several projects lined up for them—highly recommend! 🤩"</p>
               <div className="client-info">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#F4A900" color="#F4A900" />)}
