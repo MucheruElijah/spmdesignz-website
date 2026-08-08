@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -82,9 +83,9 @@ function App() {
             <img src="/logo.png" alt="Spmdesignz Logo" style={{ height: '30px', width: 'auto' }} /> Spmdesignz
           </div>
           <div className="social-links" style={{ display: 'flex', gap: '1.5rem', margin: '0.5rem 0' }}>
-            <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Facebook size={24} /></a>
-            <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Instagram size={24} /></a>
-            <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Linkedin size={24} /></a>
+            <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FaFacebook size={24} /></a>
+            <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FaInstagram size={24} /></a>
+            <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><FaLinkedin size={24} /></a>
           </div>
           <p style={{ color: 'var(--text-secondary)' }}>&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
         </div>
