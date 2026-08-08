@@ -127,28 +127,28 @@ function Home() {
         <div className="container">
           <h2>Get In Touch</h2>
           <div className="contact-container">
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="contact-form" action="https://formspree.io/f/xaewqpqo" method="POST">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
-                <input type="text" id="name" placeholder="Your Name" required />
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="Your Email" required />
+                <input type="email" id="email" name="email" placeholder="Your Email" required />
               </div>
               <div className="form-group">
                 <label htmlFor="service">Service Required</label>
-                <select id="service">
-                  <option>Logo Design</option>
-                  <option>Flyer Design</option>
-                  <option>Poster Design</option>
-                  <option>Social Media Kit</option>
-                  <option>Other</option>
+                <select id="service" name="service">
+                  <option value="Logo Design">Logo Design</option>
+                  <option value="Flyer Design">Flyer Design</option>
+                  <option value="Poster Design">Poster Design</option>
+                  <option value="Social Media Kit">Social Media Kit</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
               </div>
               <button type="submit" className="btn">Send Message</button>
             </form>
