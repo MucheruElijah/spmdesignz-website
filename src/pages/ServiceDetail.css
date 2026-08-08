@@ -1,0 +1,35 @@
+.service-detail-page {
+  padding-top: 120px;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.service-detail-header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.service-detail-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.service-sidebar {
+  background-color: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--surface-color-light);
+  position: sticky;
+  top: 120px;
+}
+
+@media (max-width: 900px) {
+  .service-detail-content {
+    grid-template-columns: 1fr;
+  }
+  .service-sidebar {
+    position: static;
+  }
+}
