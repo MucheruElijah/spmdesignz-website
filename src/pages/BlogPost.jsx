@@ -41,6 +41,17 @@ function BlogPost() {
       }
       elementToRemove.remove();
     }
+
+    // Indent and italicize lines starting with numbers/letters (e.g. 1., a., i.)
+    const blockElements = doc.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li');
+    blockElements.forEach(el => {
+      const text = el.textContent.trim();
+      // Match 1. or a. or i. followed by space or tab
+      if (/^(\d{1,2}\.|[a-zA-Z]\.|[IVXLCDMivxlcdm]{1,4}\.)[\s\t]+/.test(text)) {
+        el.classList.add('custom-list-indent');
+      }
+    });
+
     return doc.body.innerHTML;
   }, [post?.content]);
 

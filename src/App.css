@@ -914,15 +914,21 @@
 
 .blog-article-content-inner h2 {
   font-size: 2rem;
-  color: #7a857b;
+  color: #F2561D;
 }
 
 .blog-article-content-inner h3 {
   font-size: 1.5rem;
+  color: #7a857b;
 }
 
 .blog-article-content-inner p {
   margin-bottom: 1.75rem;
+}
+
+.blog-article-content-inner .custom-list-indent {
+  margin-left: 2.5rem;
+  font-style: italic;
 }
 
 .blog-article-content-inner ul, 
