@@ -508,6 +508,9 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+  .footer-col-brand {
+    order: 3;
+  }
 }
 
 .footer-col {
