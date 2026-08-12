@@ -172,7 +172,9 @@ function Home() {
         <div className="container">
           <h2>Get In Touch</h2>
           <div className="contact-container">
-            <form className="contact-form" action="https://formspree.io/f/xaewqpqo" method="POST">
+            <form className="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="7386573a-d118-4d03-b241-c3603ebc3a25" />
+              <input type="hidden" name="subject" value="New Quote Request from Spmdesignz Website" />
               <div className="form-group">
                 <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required />
