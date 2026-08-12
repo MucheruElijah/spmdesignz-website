@@ -29,10 +29,24 @@ function BlogPost() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Extract Headings for Table of Contents
+    // Extract Headings for Table of Contents and hide first image
     const timer = setTimeout(() => {
       const contentDiv = document.querySelector('.blog-article-content-inner');
       if (contentDiv) {
+        // 1. Hide the first image (as it's already in the hero section)
+        const firstImg = contentDiv.querySelector('img');
+        if (firstImg) {
+          let elementToHide = firstImg;
+          if (elementToHide.parentElement && elementToHide.parentElement.tagName === 'A') {
+            elementToHide = elementToHide.parentElement;
+          }
+          if (elementToHide.parentElement && elementToHide.parentElement.classList.contains('separator')) {
+            elementToHide = elementToHide.parentElement;
+          }
+          elementToHide.style.display = 'none';
+        }
+
+        // 2. Extract Headings for ToC
         const headingElements = Array.from(contentDiv.querySelectorAll('h2, h3'));
         const extractedHeadings = headingElements.map((elem, index) => {
           if (!elem.id) {
