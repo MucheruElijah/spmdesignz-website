@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import posts from '../data/blogPosts.json';
 import { ArrowLeft, Calendar, ArrowRight, Clock, Share2, Link as LinkIcon } from 'lucide-react';
