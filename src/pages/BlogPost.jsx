@@ -52,6 +52,16 @@ function BlogPost() {
       }
     });
 
+    // Inject IDs to headings for ToC
+    const headingElements = doc.querySelectorAll('h2, h3');
+    headingElements.forEach((elem, index) => {
+      if (!elem.id) {
+        // Create a URL friendly ID based on the text
+        const textContent = elem.textContent || '';
+        elem.id = textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `heading-${index}`;
+      }
+    });
+
     return doc.body.innerHTML;
   }, [post?.content]);
 
@@ -64,14 +74,10 @@ function BlogPost() {
       if (contentDiv) {
         // Extract Headings for ToC
         const headingElements = Array.from(contentDiv.querySelectorAll('h2, h3'));
-        const extractedHeadings = headingElements.map((elem, index) => {
-          if (!elem.id) {
-            // Create a URL friendly ID based on the text
-            elem.id = elem.innerText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `heading-${index}`;
-          }
+        const extractedHeadings = headingElements.map((elem) => {
           return {
             id: elem.id,
-            text: elem.innerText,
+            text: elem.innerText || elem.textContent,
             level: parseInt(elem.tagName.substring(1)) // 2 or 3
           };
         });
@@ -80,7 +86,7 @@ function BlogPost() {
     }, 100); // Small delay to ensure HTML is injected
 
     return () => clearTimeout(timer);
-  }, [id]);
+  }, [id, processedContent]);
 
   if (!post) {
     return (
