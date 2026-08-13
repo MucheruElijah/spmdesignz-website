@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin, Phone, Mail } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaBehance } from 'react-icons/fa';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
@@ -89,6 +89,7 @@ function App() {
               <a href="https://web.facebook.com/spmdesigners" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook size={20} /></a>
               <a href="https://www.instagram.com/spmdesignz" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram size={20} /></a>
               <a href="https://linkedin.com/spmdesigns" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin size={20} /></a>
+              <a href="https://www.behance.net/mucheruelijah" target="_blank" rel="noopener noreferrer" aria-label="Behance"><FaBehance size={20} /></a>
             </div>
             <p className="copyright-text">&copy; {new Date().getFullYear()} Spmdesignz. All rights reserved.</p>
           </div>
