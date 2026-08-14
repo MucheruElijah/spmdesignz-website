@@ -112,9 +112,9 @@ export const servicesData = [
       { q: 'Are the post templates editable?', a: 'Yes! We can provide templates in Canva or Photoshop so your team can easily update text and images in the future.' }
     ],
     portfolioImages: [
+      '/portfolio_social_media_banners.png',
       '/portfolio_social_media.jpg',
-      '/portfolio_flyer_design.jpg',
-      '/portfolio_logo_design.jpg'
+      '/portfolio_flyer_design.jpg'
     ]
   }
 ];
