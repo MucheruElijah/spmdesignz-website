@@ -35,9 +35,12 @@
 .service-icon-large {
   color: var(--primary-color);
   margin-bottom: 1.5rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
   background: rgba(244, 169, 0, 0.1);
-  padding: 1.5rem;
   border-radius: 50%;
 }
 
