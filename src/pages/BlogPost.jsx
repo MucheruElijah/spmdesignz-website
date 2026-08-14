@@ -43,7 +43,7 @@ function BlogPost() {
     }
 
     // Indent and italicize lines starting with numbers/letters (e.g. 1., a., i.)
-    const blockElements = doc.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li');
+    const blockElements = doc.querySelectorAll('p, li');
     blockElements.forEach(el => {
       const text = el.textContent.trim();
       // Match 1. or a. or i. followed by space or tab
