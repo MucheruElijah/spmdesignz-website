@@ -60,24 +60,27 @@ export const servicesData = [
   },
   {
     id: 'office-branding',
-    title: 'Office Branding',
-    shortDescription: 'Elevate your professional image with fully branded official collaterals.',
+    title: 'Office Branding & Document Formatting',
+    shortDescription: 'Elevate your professional image with fully branded collaterals and meticulously formatted MS Word documents.',
     icon: <Briefcase size={40} className="service-icon" />,
-    fullDescription: 'Stop presenting your legal documents on plain paper! Elevate your brand image instantly with custom-designed, fully branded corporate collaterals. Professionalism starts the second your client looks at your document.',
+    fullDescription: 'Stop presenting your business documents on plain paper! Elevate your brand image instantly with custom-designed, fully branded corporate collaterals. Additionally, our team specializes in transforming cluttered, messy MS Word documents into polished masterpieces. With over 10 years of experience, we fix misaligned logos, perfect your headers and footers, and ensure flawless page numbering. Professionalism starts the second your client looks at your document.',
     features: [
+      'Professional Microsoft Word Formatting (MS Word)',
+      'Headers, Footers, and Page Numbering Setup',
+      'Fixing Messy Word Documents & Misaligned Logos',
       'Letterheads, Receipts, and Invoices',
       'Company Profiles and Business Plans',
       'Agreement and Contract Designs',
-      'Annual Reports Formatting and Design'
+      'PDF to Word Conversions & Template Creation'
     ],
     process: [
-      { step: '1', title: 'Requirements Gathering', desc: 'We collect your existing logo, brand colors, and the specific documents you need branded.' },
-      { step: '2', title: 'Template Design', desc: 'We design clean, professional, and easily editable templates tailored to your business operations.' },
-      { step: '3', title: 'Finalization', desc: 'Templates are refined and delivered in accessible formats like Word, PDF, or Illustrator.' }
+      { step: '1', title: 'Requirements Gathering', desc: 'We collect your existing logo, brand colors, and the specific documents you need branded or formatted.' },
+      { step: '2', title: 'Design & Formatting', desc: 'We design clean templates or meticulously format your existing messy MS Word documents to perfection.' },
+      { step: '3', title: 'Finalization', desc: 'Documents are refined and delivered in accessible, fully editable formats like Microsoft Word or PDF.' }
     ],
     faqs: [
-      { q: 'Can I edit the documents myself?', a: 'Yes, we provide editable formats like Microsoft Word for letterheads and invoices so you can use them daily.' },
-      { q: 'Do you write the content for company profiles?', a: 'We primarily focus on the visual design and formatting. However, we can help structure your existing content for maximum impact.' },
+      { q: 'Can I edit the documents myself?', a: 'Yes, we provide fully editable formats like Microsoft Word for your documents so your team can use them daily without breaking the layout.' },
+      { q: 'Can you fix my existing messy Word document?', a: 'Absolutely! We specialize in fixing broken formatting, misaligned logos, and inconsistent page numbers in existing documents.' },
       { q: 'Do you print the materials?', a: 'We provide print-ready digital files. We can also liaise with your chosen print shop to ensure the specs are perfect.' }
     ],
     portfolioImages: [
