@@ -25,9 +25,9 @@ export const servicesData = [
       { q: 'Can you use my company photos?', a: 'Absolutely! We can incorporate any high-quality photos, logos, or assets you provide.' }
     ],
     portfolioImages: [
-      '/portfolio_flyer_design_1786184135949.jpg',
-      '/portfolio_social_media_1786184156682.jpg',
-      '/portfolio_logo_design_1786184146882.jpg'
+      '/portfolio_flyer_design.jpg',
+      '/portfolio_social_media.jpg',
+      '/portfolio_logo_design.jpg'
     ]
   },
   {
@@ -53,9 +53,9 @@ export const servicesData = [
       { q: 'How long does the logo design process take?', a: 'Initial concepts are usually delivered within 3-5 business days, depending on the complexity of the project.' }
     ],
     portfolioImages: [
-      '/portfolio_logo_design_1786184146882.jpg',
-      '/portfolio_flyer_design_1786184135949.jpg',
-      '/portfolio_social_media_1786184156682.jpg'
+      '/portfolio_logo_design.jpg',
+      '/portfolio_flyer_design.jpg',
+      '/portfolio_social_media.jpg'
     ]
   },
   {
@@ -84,9 +84,9 @@ export const servicesData = [
       { q: 'Do you print the materials?', a: 'We provide print-ready digital files. We can also liaise with your chosen print shop to ensure the specs are perfect.' }
     ],
     portfolioImages: [
-      '/portfolio_social_media_1786184156682.jpg',
-      '/portfolio_logo_design_1786184146882.jpg',
-      '/portfolio_flyer_design_1786184135949.jpg'
+      '/portfolio_social_media.jpg',
+      '/portfolio_logo_design.jpg',
+      '/portfolio_flyer_design.jpg'
     ]
   },
   {
@@ -112,9 +112,9 @@ export const servicesData = [
       { q: 'Are the post templates editable?', a: 'Yes! We can provide templates in Canva or Photoshop so your team can easily update text and images in the future.' }
     ],
     portfolioImages: [
-      '/portfolio_social_media_1786184156682.jpg',
-      '/portfolio_flyer_design_1786184135949.jpg',
-      '/portfolio_logo_design_1786184146882.jpg'
+      '/portfolio_social_media.jpg',
+      '/portfolio_flyer_design.jpg',
+      '/portfolio_logo_design.jpg'
     ]
   }
 ];
