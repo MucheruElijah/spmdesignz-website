@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Spmdesignz - Professional Email Signature</title>
+  <title>Spmdesignz - Clean Email Signature (No Shadow)</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -20,7 +20,7 @@
     .instructions {
       background: #1a1c23;
       border: 1px solid #2d313d;
-      padding: 22px;
+      padding: 20px;
       border-radius: 10px;
       margin-bottom: 25px;
       font-size: 14px;
@@ -31,11 +31,11 @@
       color: #F2561D;
       font-size: 18px;
     }
-    .signature-card {
+    /* Preview box on the webpage only - the signature itself has NO shadow */
+    .preview-canvas {
       background: #ffffff;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border-radius: 8px;
       color: #222222;
     }
     .btn-copy {
@@ -87,108 +87,122 @@
 
   <div class="container">
     <div class="instructions">
-      <h2>How to get your Signature with Circular Icons into Spacemail</h2>
-      <p style="margin: 0 0 10px 0;">We designed this signature in the exact layout as your client's (Circular logo, vertical brand accent line, bold title, website link, and circular social icons):</p>
+      <h2>✨ Clean Natural Signature (No Shadow + Subtle Top Line)</h2>
+      <p style="margin: 0 0 10px 0;">We removed the card wrapper/shadow completely and added a crisp, subtle separator line at the top so it blends seamlessly into your email messages:</p>
       <ol style="margin: 0; padding-left: 20px;">
-        <li>Click <strong>Copy Signature</strong> below.</li>
+        <li>Click <strong>📋 Copy Signature</strong> below.</li>
         <li>Open <strong>Spacemail</strong> &gt; <strong>Settings</strong> &gt; <strong>Signatures</strong>.</li>
-        <li>Paste (<kbd>Ctrl + V</kbd>) into the signature box.</li>
-        <li><em>If Spacemail's editor doesn't display the images on paste:</em> use the <strong>Image icon (🖼️)</strong> on Spacemail's toolbar to insert the icons directly, then link each one using the <strong>Link icon (🔗)</strong>!</li>
+        <li>Delete the previous signature, then press <strong>Ctrl + V</strong> (Paste).</li>
+        <li>Click <strong>Save</strong>!</li>
       </ol>
     </div>
 
-    <div class="signature-card" id="signature-container">
-      <!-- START OF SIGNATURE HTML -->
-      <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #222222;">
-        <tr>
-          <!-- Logo / Avatar Column -->
-          <td valign="middle" style="padding-right: 20px;">
-            <a href="https://spmdesignz.com" target="_blank" style="text-decoration: none; display: block;">
-              <img src="https://spmdesignz.com/logo.png" alt="Spmdesignz" width="85" height="85" style="display: block; border-radius: 50%; border: 0;" />
-            </a>
-          </td>
+    <!-- PREVIEW AREA -->
+    <div class="preview-canvas">
+      
+      <!-- START OF SIGNATURE FOR COPYING -->
+      <div id="signature-container" style="background: transparent; margin: 0; padding: 0;">
+        
+        <!-- Subtle Top Separator Line -->
+        <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; max-width: 520px; margin: 0 0 16px 0;">
+          <tr>
+            <td style="border-top: 1px solid #e2e8f0; height: 1px; line-height: 1px; font-size: 1px; padding: 0;">&nbsp;</td>
+          </tr>
+        </table>
 
-          <!-- Vertical Divider Bar -->
-          <td valign="top" style="border-left: 3px solid #F2561D; padding-left: 18px;">
-            <!-- Name & Title -->
-            <div style="font-size: 18px; font-weight: bold; color: #111111; margin-bottom: 2px;">
-              Elijah Mucheru
-            </div>
-            <div style="font-size: 13px; font-style: italic; color: #555555; margin-bottom: 2px;">
-              Creative Director &amp; Lead Designer
-            </div>
-            <div style="font-size: 13px; font-weight: 600; color: #111111; margin-bottom: 10px;">
-              Signpost Media &amp; Designz
-            </div>
+        <!-- Main Signature Table -->
+        <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #222222; margin: 0; padding: 0;">
+          <tr>
+            <!-- Logo Column -->
+            <td valign="middle" style="padding-right: 20px; vertical-align: middle;">
+              <a href="https://spmdesignz.com" target="_blank" style="text-decoration: none; display: block;">
+                <img src="https://spmdesignz.com/logo.png" alt="Spmdesignz" width="85" height="85" style="display: block; border-radius: 50%; border: 0;" />
+              </a>
+            </td>
 
-            <!-- Links & Info -->
-            <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #555555; margin-bottom: 12px;">
-              <tr>
-                <td style="padding-bottom: 3px;">
-                  <strong style="color: #222222;">Website:</strong> 
-                  <a href="https://spmdesignz.com" target="_blank" style="color: #F2561D; text-decoration: underline; font-weight: 600;">www.spmdesignz.com</a>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding-bottom: 3px;">
-                  <strong style="color: #222222;">Email:</strong> 
-                  <a href="mailto:mucheru@spmdesignz.com" style="color: #555555; text-decoration: none;">mucheru@spmdesignz.com</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong style="color: #222222;">Phone:</strong> 
-                  <a href="tel:+254738280809" style="color: #555555; text-decoration: none;">+254 738 280 809</a> / <a href="tel:+254770223001" style="color: #555555; text-decoration: none;">0770 223 001</a>
-                </td>
-              </tr>
-            </table>
+            <!-- Vertical Brand Divider Bar -->
+            <td valign="top" style="border-left: 3px solid #F2561D; padding-left: 18px; vertical-align: top;">
+              <!-- Name & Title -->
+              <div style="font-size: 18px; font-weight: bold; color: #111111; margin-bottom: 2px;">
+                Elijah Mucheru
+              </div>
+              <div style="font-size: 13px; font-style: italic; color: #555555; margin-bottom: 2px;">
+                Creative Director &amp; Lead Designer
+              </div>
+              <div style="font-size: 13px; font-weight: 600; color: #111111; margin-bottom: 10px;">
+                Signpost Media &amp; Designz
+              </div>
 
-            <!-- Social Media Circular Icons -->
-            <table cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <!-- Behance -->
-                <td style="padding-right: 8px;">
-                  <a href="https://www.behance.net/mucheruelijah" target="_blank" title="Behance" style="text-decoration: none;">
-                    <img src="https://spmdesignz.com/icons/behance.png" alt="Behance" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
-                  </a>
-                </td>
-                <!-- LinkedIn -->
-                <td style="padding-right: 8px;">
-                  <a href="https://linkedin.com/spmdesigns" target="_blank" title="LinkedIn" style="text-decoration: none;">
-                    <img src="https://spmdesignz.com/icons/linkedin.png" alt="LinkedIn" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
-                  </a>
-                </td>
-                <!-- Instagram -->
-                <td style="padding-right: 8px;">
-                  <a href="https://www.instagram.com/spmdesignz" target="_blank" title="Instagram" style="text-decoration: none;">
-                    <img src="https://spmdesignz.com/icons/instagram.png" alt="Instagram" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
-                  </a>
-                </td>
-                <!-- Facebook -->
-                <td style="padding-right: 8px;">
-                  <a href="https://web.facebook.com/spmdesigners" target="_blank" title="Facebook" style="text-decoration: none;">
-                    <img src="https://spmdesignz.com/icons/facebook.png" alt="Facebook" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
-                  </a>
-                </td>
-                <!-- WhatsApp -->
-                <td style="padding-right: 8px;">
-                  <a href="https://wa.me/254738280809" target="_blank" title="WhatsApp" style="text-decoration: none;">
-                    <img src="https://spmdesignz.com/icons/whatsapp.png" alt="WhatsApp" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
-                  </a>
-                </td>
-                <!-- Fiverr -->
-                <td>
-                  <a href="https://www.fiverr.com/spmdesignz" target="_blank" title="Fiverr" style="text-decoration: none;">
-                    <img src="https://spmdesignz.com/icons/fiverr.png" alt="Fiverr" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
-                  </a>
-                </td>
-              </tr>
-            </table>
+              <!-- Links & Info -->
+              <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #555555; margin-bottom: 12px;">
+                <tr>
+                  <td style="padding-bottom: 3px;">
+                    <strong style="color: #222222;">Website:</strong> 
+                    <a href="https://spmdesignz.com" target="_blank" style="color: #F2561D; text-decoration: underline; font-weight: 600;">www.spmdesignz.com</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-bottom: 3px;">
+                    <strong style="color: #222222;">Email:</strong> 
+                    <a href="mailto:mucheru@spmdesignz.com" style="color: #555555; text-decoration: none;">mucheru@spmdesignz.com</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong style="color: #222222;">Phone:</strong> 
+                    <a href="tel:+254738280809" style="color: #555555; text-decoration: none;">+254 738 280 809</a> / <a href="tel:+254770223001" style="color: #555555; text-decoration: none;">0770 223 001</a>
+                  </td>
+                </tr>
+              </table>
 
-          </td>
-        </tr>
-      </table>
-      <!-- END OF SIGNATURE HTML -->
+              <!-- Social Media Circular Icons -->
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <!-- Behance -->
+                  <td style="padding-right: 8px;">
+                    <a href="https://www.behance.net/mucheruelijah" target="_blank" title="Behance" style="text-decoration: none;">
+                      <img src="https://spmdesignz.com/icons/behance.png" alt="Behance" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
+                    </a>
+                  </td>
+                  <!-- LinkedIn -->
+                  <td style="padding-right: 8px;">
+                    <a href="https://linkedin.com/spmdesigns" target="_blank" title="LinkedIn" style="text-decoration: none;">
+                      <img src="https://spmdesignz.com/icons/linkedin.png" alt="LinkedIn" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
+                    </a>
+                  </td>
+                  <!-- Instagram -->
+                  <td style="padding-right: 8px;">
+                    <a href="https://www.instagram.com/spmdesignz" target="_blank" title="Instagram" style="text-decoration: none;">
+                      <img src="https://spmdesignz.com/icons/instagram.png" alt="Instagram" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
+                    </a>
+                  </td>
+                  <!-- Facebook -->
+                  <td style="padding-right: 8px;">
+                    <a href="https://web.facebook.com/spmdesigners" target="_blank" title="Facebook" style="text-decoration: none;">
+                      <img src="https://spmdesignz.com/icons/facebook.png" alt="Facebook" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
+                    </a>
+                  </td>
+                  <!-- WhatsApp -->
+                  <td style="padding-right: 8px;">
+                    <a href="https://wa.me/254738280809" target="_blank" title="WhatsApp" style="text-decoration: none;">
+                      <img src="https://spmdesignz.com/icons/whatsapp.png" alt="WhatsApp" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
+                    </a>
+                  </td>
+                  <!-- Fiverr -->
+                  <td>
+                    <a href="https://www.fiverr.com/spmdesignz" target="_blank" title="Fiverr" style="text-decoration: none;">
+                      <img src="https://spmdesignz.com/icons/fiverr.png" alt="Fiverr" width="28" height="28" style="display: block; border: 0; border-radius: 50%;" />
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- END OF SIGNATURE -->
+
     </div>
 
     <div style="text-align: center;">
@@ -197,7 +211,7 @@
 
     <!-- Direct Icon Downloads & URLs -->
     <div class="icon-downloads">
-      <h3 style="margin-top: 0; color: #fff; font-size: 15px;">Individual Hosted Icons (For inserting in Spacemail via Image button 🖼️):</h3>
+      <h3 style="margin-top: 0; color: #fff; font-size: 15px;">Hosted Icons Reference:</h3>
       <div class="icon-grid">
         <a class="icon-pill" href="/icons/behance.png" target="_blank">
           <img src="/icons/behance.png" width="18" height="18" /> Behance
@@ -230,9 +244,9 @@
       window.getSelection().addRange(range);
       try {
         document.execCommand('copy');
-        alert('Signature copied! Now paste (Ctrl+V) into Spacemail.');
+        alert('Clean signature copied! Now paste (Ctrl+V) into Spacemail.');
       } catch (err) {
-        alert('Please manually highlight and copy the signature box.');
+        alert('Please manually highlight and copy the signature area.');
       }
       window.getSelection().removeAllRanges();
     }
