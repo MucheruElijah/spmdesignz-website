@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Menu, X, MapPin, Phone, Mail } from 'lucide-react';
+import { Menu, X, MapPin, Phone, Mail, ShoppingBag } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaBehance } from 'react-icons/fa';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import ServiceDetail from './pages/ServiceDetail';
+import Store from './pages/Store';
+import OrderTracking from './pages/OrderTracking';
 import './App.css';
 
 function ScrollToHash() {
@@ -56,6 +58,7 @@ function Navigation() {
               <li><a href="#about" onClick={closeMenu}>About Us</a></li>
             </>
           )}
+          <li><Link to="/store" onClick={closeMenu} style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}><ShoppingBag size={16} color="var(--primary-color)" /> Store</Link></li>
           <li><Link to="/blog" onClick={closeMenu}>Blog</Link></li>
           <li className="quote-btn-container" style={{ display: 'flex', alignItems: 'center', paddingLeft: '1.5rem', borderLeft: '1px solid rgba(255,255,255,0.2)', marginLeft: '0.5rem', height: '30px' }}>
             <Link to={isHome ? "#contact" : "/#contact"} className="btn" onClick={closeMenu} style={{padding: '0.5rem 1rem'}}>Get a Quote</Link>
@@ -73,6 +76,9 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/order" element={<OrderTracking />} />
+        <Route path="/order/:orderId" element={<OrderTracking />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/service/:id" element={<ServiceDetail />} />
@@ -99,6 +105,8 @@ function App() {
             <h4 className="footer-heading">Explore</h4>
             <ul className="footer-links">
               <li><Link to="/">Home</Link></li>
+              <li><Link to="/store">Design Store</Link></li>
+              <li><Link to="/order">Track Order</Link></li>
               <li><a href="/#services">Services</a></li>
               <li><a href="/#portfolio">Portfolio</a></li>
               <li><a href="/#about">About Us</a></li>
