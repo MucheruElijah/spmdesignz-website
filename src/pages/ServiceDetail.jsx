@@ -39,7 +39,7 @@ function ServiceDetail() {
     return <Navigate to="/" />;
   }
 
-  const images = service.portfolioImages || ['/portfolio_flyer_design.jpg'];
+  const images = service.portfolioImages || ['/portfolio_company_profile_oceanscan.jpg'];
   const packages = service.packages || {
     basic: { name: 'Basic', price: 25, deliveryDays: 2, revisions: '2 Revisions', description: service.shortDescription, features: service.features.slice(0, 4) },
     standard: { name: 'Standard', price: 45, deliveryDays: 3, revisions: 'Unlimited Revisions', description: service.shortDescription, features: service.features },

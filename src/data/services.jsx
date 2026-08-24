@@ -1,79 +1,82 @@
 import React from 'react';
-import { Layout, PenTool, Briefcase, Share2 } from 'lucide-react';
+import { BookOpen, PenTool, Briefcase, Share2 } from 'lucide-react';
 
 export const servicesData = [
   {
-    id: 'flyer-design',
-    title: 'Flyer & Poster Design',
-    shortDescription: 'Captivating and professional flyers for events, corporate marketing, and promotions.',
-    icon: <Layout size={40} className="service-icon" />,
-    fullDescription: 'Make a lasting impression with our custom flyer designs. Whether you are promoting a one-time corporate event, launching a new product, or running a large-scale marketing campaign, our flyers are engineered to grab immediate attention and communicate your value proposition clearly.',
-    fiverrUrl: 'https://www.fiverr.com/s/rEV65Gy',
+    id: 'company-profile',
+    title: 'Company Profile, Business Plan & Annual Reports',
+    shortDescription: 'Professional company profile writing, corporate business plans, and annual report designs that command trust and win clients.',
+    icon: <BookOpen size={40} className="service-icon" />,
+    fullDescription: 'Win major contracts, attract investors, and establish immediate corporate authority. We write, structure, and design high-impact Company Profiles, Executive Business Plans, and Annual Reports. Whether you are submitting a government tender, pitching to venture capitalists, or presenting to enterprise clients, we transform your achievements into a persuasive, beautifully designed document.',
+    fiverrUrl: 'https://www.fiverr.com/spmdesignz/write-and-design-your-company-profile',
     features: [
-      'Custom Layouts tailored to your brand guidelines',
-      'High-resolution, print-ready files (300 DPI CMYK)',
-      'Web-optimized versions for social media sharing',
-      'Editable Source Files (Photoshop PSD / Illustrator AI)',
-      'Quick turnaround times with unlimited revisions'
+      'Professional Copywriting & Content Structuring',
+      'Custom Cover Page & Executive Summary Design',
+      'Organization Chart (Organogram) & Team Profiles',
+      'Product / Service Catalog & Portfolio Highlights',
+      'Financial Charts, Revenue Projections & Market Data',
+      'Print-Ready 300 DPI CMYK PDF with Bleeds',
+      'Interactive Digital PDF with Clickable Links',
+      'Fully Editable Source Files (MS Word / InDesign / PowerPoint)'
     ],
     process: [
-      { step: '1', title: 'Consultation & Assets', desc: 'We gather your requirements, event details, copy, and branding assets to understand your exact vision.' },
-      { step: '2', title: 'Drafting & Visual Hierarchy', desc: 'Our team crafts initial concepts focusing on visual hierarchy, typography, and captivating imagery.' },
-      { step: '3', title: 'Final Delivery & Polish', desc: 'After your feedback and revisions, we deliver high-resolution print and web files ready for immediate distribution.' }
+      { step: '1', title: 'Content & Information Ingestion', desc: 'We collect your business details, mission, vision, services, team info, and existing branding assets.' },
+      { step: '2', title: 'Copywriting & Graphic Structuring', desc: 'Our team writes compelling copy, formats organograms, and crafts bespoke infographic layouts tailored to your industry.' },
+      { step: '3', title: 'Review, Polish & Source Handoff', desc: 'We refine the layout with your feedback and deliver high-res print files, web-interactive PDFs, and fully editable source documents.' }
     ],
     faqs: [
-      { q: 'What file formats will I receive?', a: 'You will receive print-ready PDF files (with bleeds/trim marks), as well as high-resolution PNG and JPG formats for digital use. Source files (PSD/AI) are also included in Standard and Premium tiers.' },
-      { q: 'How many revisions do I get?', a: 'We offer unlimited revisions on our Standard and Premium packages to ensure you are 100% satisfied with the final design.' },
-      { q: 'Can you use my company photos and logo?', a: 'Absolutely! We incorporate any high-quality photos, logos, or assets you provide, ensuring they blend seamlessly into the layout.' }
+      { q: 'Can you help write the content if I only have basic notes?', a: 'Yes! We specialize in both copywriting and design. You can provide rough bullet points or your existing draft, and our team will research, write, and polish professional corporate content for your profile.' },
+      { q: 'Can I edit the document in Microsoft Word or InDesign later?', a: 'Absolutely. We provide fully editable files (Word .docx, Adobe InDesign, or PowerPoint) so you can easily update team members, stats, and achievements as your company grows.' },
+      { q: 'Is this suitable for corporate tender bids and investor pitches?', a: 'Yes! Our company profiles and business plans are engineered specifically to meet strict international standards for corporate procurement, banking tenders, and investor presentations.' }
     ],
     portfolioImages: [
-      '/portfolio_flyer_design.jpg',
-      '/portfolio_social_media_banners.png',
-      '/portfolio_social_media.jpg'
+      '/portfolio_company_profile_oceanscan.jpg',
+      '/portfolio_business_plan_allstate.png',
+      '/portfolio_financial_projections_report.png'
     ],
     packages: {
       basic: {
-        name: 'Basic Single Flyer',
-        price: 25,
-        deliveryDays: 2,
+        name: 'Starter Profile (Up to 4 Pages)',
+        price: 40,
+        deliveryDays: 3,
         revisions: '3 Revisions',
-        description: 'Single-sided high-resolution promotional flyer design ready for print and digital distribution.',
+        description: 'Clean corporate layout covering About Us, Mission/Vision, Services & Contact info for startups.',
         features: [
-          '1 Custom Single-Sided Concept',
-          'Print-Ready PDF (300 DPI CMYK)',
-          'Social Media & Web Optimized PNG/JPG',
+          'Up to 4 Pages Formatted & Designed',
+          'Custom Cover Page + About + Services',
+          'High-Res Print PDF + Interactive Web PDF',
           '3 Rounds of Revisions',
-          '2-Day Delivery'
+          '3-Day Delivery'
         ]
       },
       standard: {
-        name: 'Standard Double-Sided',
-        price: 45,
-        deliveryDays: 2,
+        name: 'Executive Company Profile (Up to 10 Pages)',
+        price: 80,
+        deliveryDays: 4,
         revisions: 'Unlimited Revisions',
-        description: 'Double-sided corporate flyer or event poster with full typography styling and source files.',
+        description: 'Comprehensive company profile or business plan with organization chart, infographics, and content polish.',
         features: [
-          '2-Sided Custom Flyer Design',
-          'Print-Ready 300 DPI CMYK PDF (All Sizes: A4, A5, Letter)',
-          'Editable Source File (PSD / AI)',
-          'Web / Instagram / Facebook Versions',
+          'Up to 10 Pages Designed & Written',
+          'Executive Summary, Organogram & Capabilities',
+          'Custom Infographics, Tables & Charts',
+          'Editable Word/InDesign/PowerPoint + Print PDF',
           'Unlimited Revisions',
-          '2-Day Delivery'
+          '4-Day Delivery'
         ]
       },
       premium: {
-        name: 'Premium Multi-Page Pack',
-        price: 70,
-        deliveryDays: 3,
+        name: 'Complete Corporate Deck (Up to 20 Pages)',
+        price: 150,
+        deliveryDays: 5,
         revisions: 'Unlimited Revisions',
-        description: 'Tri-fold, Bi-fold, or Multi-page promotional brochure designed to impress investors & clients.',
+        description: 'Full corporate annual report, investor business plan, or comprehensive company profile with market data.',
         features: [
-          'Bi-Fold or Tri-Fold Full Layout',
-          'Structured Product/Service Showcase',
-          'High-Resolution Print PDF + Web PDF',
-          'Full Editable Source Files (AI/PSD)',
-          'Commercial Usage Rights',
-          '3-Day Delivery & VIP Support'
+          'Up to 20 Pages Complete Layout',
+          'Market Research & Financial Tables Styling',
+          'Full Source Files (InDesign / Word / AI / PDF)',
+          'Print CMYK 300 DPI + Digital Interactive PDF',
+          'VIP Priority Support & Unlimited Polish',
+          '5-Day Turnaround'
         ]
       }
     }
@@ -105,7 +108,7 @@ export const servicesData = [
     portfolioImages: [
       '/portfolio_logo_design.jpg',
       '/portfolio_logo_design_new.png',
-      '/portfolio_flyer_design.jpg'
+      '/portfolio_company_profile_oceanscan.jpg'
     ],
     packages: {
       basic: {
@@ -185,7 +188,7 @@ export const servicesData = [
     portfolioImages: [
       '/portfolio_agreement_branding.png',
       '/portfolio_social_media_banners.png',
-      '/portfolio_flyer_design.jpg'
+      '/portfolio_business_plan_allstate.png'
     ],
     packages: {
       basic: {

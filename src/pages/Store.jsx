@@ -50,7 +50,7 @@ function Store() {
         <div className="gig-catalog-grid">
           {filteredServices.map(service => {
             const minPrice = service.packages?.basic?.price || 25;
-            const primaryImage = service.portfolioImages?.[0] || '/portfolio_flyer_design.jpg';
+            const primaryImage = service.portfolioImages?.[0] || '/portfolio_company_profile_oceanscan.jpg';
 
             return (
               <div key={service.id} className="gig-card">

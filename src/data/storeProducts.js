@@ -1,8 +1,8 @@
 export const storeCategories = [
   { id: 'all', name: 'All Services' },
+  { id: 'company-profile', name: 'Company Profiles & Business Plans' },
   { id: 'logo-design', name: 'Logo Design' },
   { id: 'office-branding', name: 'Office Branding & Formatting' },
-  { id: 'flyer-design', name: 'Flyers & Posters' },
   { id: 'social-media-kits', name: 'Social Media Kits' }
 ];
 
@@ -134,63 +134,64 @@ export const storePackages = [
     recommended: false
   },
 
-  // --- FLYERS & POSTERS ---
+  // --- COMPANY PROFILES & BUSINESS PLANS ---
   {
-    id: 'flyer-single',
-    categoryId: 'flyer-design',
-    categoryName: 'Flyers & Posters',
-    title: 'Single-Sided Promo Flyer',
+    id: 'profile-starter',
+    categoryId: 'company-profile',
+    categoryName: 'Company Profiles & Business Plans',
+    title: 'Starter Profile (Up to 4 Pages)',
     badge: null,
-    price: 25,
-    deliveryDays: 2,
-    shortDescription: 'Eye-catching flyer for events, business promotions, product launches, or parties.',
+    price: 40,
+    deliveryDays: 3,
+    shortDescription: 'Clean corporate layout covering About Us, Mission/Vision, Services & Contact info for startups.',
     deliverables: [
-      '1 Custom Single-Sided Design',
-      'Print-Ready 300 DPI CMYK PDF with Bleeds',
-      'Web & Social Media Optimized JPG/PNG',
+      'Up to 4 Pages Formatted & Designed',
+      'Custom Cover Page + About Us + Services',
+      'High-Resolution Print PDF + Interactive Web PDF',
       '3 Rounds of Revisions',
-      '2-Day Delivery'
+      '3-Day Delivery'
     ],
-    fiverrLink: 'https://www.fiverr.com/s/rEV65Gy',
+    fiverrLink: 'https://www.fiverr.com/spmdesignz/write-and-design-your-company-profile',
     recommended: false
   },
   {
-    id: 'flyer-double',
-    categoryId: 'flyer-design',
-    categoryName: 'Flyers & Posters',
-    title: 'Double-Sided Corporate Event Flyer',
+    id: 'profile-executive',
+    categoryId: 'company-profile',
+    categoryName: 'Company Profiles & Business Plans',
+    title: 'Executive Company Profile (Up to 10 Pages)',
     badge: 'Most Popular',
-    price: 45,
-    deliveryDays: 2,
-    shortDescription: 'Comprehensive front & back promo layout with full typography and image editing.',
+    price: 80,
+    deliveryDays: 4,
+    shortDescription: 'Comprehensive company profile or business plan with organization chart, infographics, and content polish.',
     deliverables: [
-      '2-Sided Custom Flyer Design',
-      'Print-Ready 300 DPI CMYK PDF (All Sizes: A4, A5, US Letter)',
-      'Editable Source File (PSD / AI)',
-      'Web / Instagram / Facebook Versions',
+      'Up to 10 Pages Designed & Written',
+      'Executive Summary, Organogram & Capabilities',
+      'Custom Infographics, Tables & Charts',
+      'Editable Word/InDesign/PowerPoint + Print PDF',
       'Unlimited Revisions',
-      '2-Day Delivery'
+      '4-Day Delivery'
     ],
-    fiverrLink: 'https://www.fiverr.com/s/rEV65Gy',
+    fiverrLink: 'https://www.fiverr.com/spmdesignz/write-and-design-your-company-profile',
     recommended: true
   },
   {
-    id: 'flyer-brochure',
-    categoryId: 'flyer-design',
-    categoryName: 'Flyers & Posters',
-    title: 'Multi-Page Brochure / Catalog',
-    badge: 'Premium',
-    price: 70,
-    deliveryDays: 3,
-    shortDescription: 'Tri-fold, Bi-fold, or 4-Page Company Catalog designed to impress investors & clients.',
+    id: 'profile-corporate-deck',
+    categoryId: 'company-profile',
+    categoryName: 'Company Profiles & Business Plans',
+    title: 'Complete Corporate Deck (Up to 20 Pages)',
+    badge: 'Enterprise',
+    price: 150,
+    deliveryDays: 5,
+    shortDescription: 'Full corporate annual report, investor business plan, or comprehensive company profile with market data.',
     deliverables: [
-      'Bi-Fold or Tri-Fold Full Layout',
-      'Structured Product/Service Showcases',
-      'High-Resolution Print PDF + Web PDF',
-      'Full Editable Source Files (AI/PSD)',
-      '3-Day Delivery & Unlimited Revisions'
+      'Up to 20 Pages Complete Layout',
+      'Market Research & Financial Tables Styling',
+      'Full Source Files (InDesign / Word / AI / PDF)',
+      'Print CMYK 300 DPI + Digital Interactive PDF',
+      'VIP Priority Support & Unlimited Polish',
+      '5-Day Turnaround'
     ],
-    fiverrLink: 'https://www.fiverr.com/s/rEV65Gy',
+    fiverrLink: 'https://www.fiverr.com/spmdesignz/write-and-design-your-company-profile',
     recommended: false
   },
 

@@ -11,13 +11,13 @@ function Home() {
         <div className="container animate-fade-in">
           <div className="hero-content">
             <h1>Your <i>Premier</i> Design <span>Agency.</span></h1>
-            <p>We are the creative force behind striking brand identities. We craft professional flyers, logos, posters, and social media kits that elevate businesses and captivate audiences — completely custom-designed for you.</p>
+            <p>We are the creative force behind striking brand identities. We craft professional company profiles, executive business plans, custom logos, and branded corporate collaterals that elevate businesses and win high-value clients.</p>
             
             <ul className="hero-list">
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Tailored Designs</strong> — Custom logos, flyers, and branding</li>
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Premium Quality</strong> crafted with Adobe Creative Suite</li>
+              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Company Profiles &amp; Business Plans</strong> — High-impact documents that win tenders &amp; investments</li>
+              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Custom Logo Design</strong> — Memorable visual identities crafted with Adobe Creative Suite</li>
+              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Office Branding &amp; MS Word</strong> — Flawless corporate documents &amp; formatted agreements</li>
               <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Social Media Ready</strong> kits to boost your engagement</li>
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Print & Web Optimized</strong> high-resolution files</li>
             </ul>
 
             <div className="hero-buttons">
@@ -52,15 +52,15 @@ function Home() {
           <h2>Our Work</h2>
           <div className="portfolio-grid">
             <div className="portfolio-item">
-              <img src="/hero_background.jpg" alt="Corporate Branding" className="placeholder-img" />
+              <img src="/portfolio_company_profile_oceanscan.jpg" alt="Company Profile Design" className="placeholder-img" />
               <div className="portfolio-overlay">
-                <h3>Corporate Branding</h3>
+                <h3>Company Profile Design</h3>
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/portfolio_flyer_design.jpg" alt="Tech Flyer" className="placeholder-img" />
+              <img src="/portfolio_agreement_branding.png" alt="Agreement & Contract Branding" className="placeholder-img" />
               <div className="portfolio-overlay">
-                <h3>Tech Flyer</h3>
+                <h3>Agreement &amp; Contract Branding</h3>
               </div>
             </div>
             <div className="portfolio-item">
@@ -70,7 +70,7 @@ function Home() {
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/portfolio_social_media.jpg" alt="Social Campaign" className="placeholder-img" />
+              <img src="/portfolio_social_media_banners.png" alt="Social Media Banners" className="placeholder-img" />
               <div className="portfolio-overlay">
                 <h3>Social Campaign</h3>
               </div>
@@ -186,9 +186,9 @@ function Home() {
               <div className="form-group">
                 <label htmlFor="service">Service Required</label>
                 <select id="service" name="service">
-                  <option value="Logo Design">Logo Design</option>
-                  <option value="Flyer Design">Flyer Design</option>
-                  <option value="Poster Design">Poster Design</option>
+                  <option value="Company Profile & Business Plan">Company Profile &amp; Business Plan</option>
+                  <option value="Logo Design & Brand Identity">Logo Design &amp; Brand Identity</option>
+                  <option value="Office Branding & Document Formatting">Office Branding &amp; Document Formatting</option>
                   <option value="Social Media Kit">Social Media Kit</option>
                   <option value="Other">Other</option>
                 </select>

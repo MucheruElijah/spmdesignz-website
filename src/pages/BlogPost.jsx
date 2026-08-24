@@ -5,9 +5,9 @@ import { ArrowLeft, Calendar, ArrowRight, Clock, Share2, Link as LinkIcon } from
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 function getFirstImage(htmlContent) {
-  if (!htmlContent) return '/portfolio_flyer_design.jpg';
+  if (!htmlContent) return '/portfolio_company_profile_oceanscan.jpg';
   const match = htmlContent.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : '/portfolio_flyer_design.jpg';
+  return match ? match[1] : '/portfolio_company_profile_oceanscan.jpg';
 }
 
 function getPlainTextExcerpt(htmlContent, maxLength = 130) {

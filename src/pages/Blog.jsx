@@ -4,9 +4,9 @@ import posts from '../data/blogPosts.json';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 function getFirstImage(htmlContent) {
-  if (!htmlContent) return '/portfolio_flyer_design.jpg';
+  if (!htmlContent) return '/portfolio_company_profile_oceanscan.jpg';
   const match = htmlContent.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : '/portfolio_flyer_design.jpg';
+  return match ? match[1] : '/portfolio_company_profile_oceanscan.jpg';
 }
 
 function getPlainTextExcerpt(htmlContent, maxLength = 130) {
