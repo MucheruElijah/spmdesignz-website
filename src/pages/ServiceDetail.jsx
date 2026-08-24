@@ -158,10 +158,32 @@ function ServiceDetail() {
               )}
             </div>
 
-            {/* Service Overview */}
-            <section className="service-detail-section">
+            {/* Service Overview & Full Gig Description */}
+            <section className="service-detail-section about-service-section">
               <h2>About This Service</h2>
-              <p className="service-body-text">{service.fullDescription}</p>
+              <div className="about-service-body">
+                <p className="service-body-text lead-summary">{service.fullDescription}</p>
+
+                {service.aboutSections && service.aboutSections.map((sec, idx) => (
+                  <div key={idx} className="about-sub-block">
+                    <h3 className="about-block-title">{sec.title}</h3>
+                    {sec.intro && <p className="about-block-intro">{sec.intro}</p>}
+                    {sec.items && (
+                      <ul className="about-structured-list">
+                        {sec.items.map((item, i) => (
+                          <li key={i}>
+                            <span className="about-bullet-icon">❖</span>
+                            <div className="about-item-text">
+                              {item.label && <strong className="item-label">{item.label}: </strong>}
+                              <span>{item.text || item}</span>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
             </section>
 
             {/* What's Included Checklist */}

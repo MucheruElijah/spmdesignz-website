@@ -19,6 +19,49 @@ export const servicesData = [
       'Interactive Digital PDF with Clickable Links',
       'Fully Editable Source Files (MS Word / InDesign / PowerPoint)'
     ],
+    aboutSections: [
+      {
+        title: 'Why a Professional Company Profile is Crucial for Your Business',
+        intro: 'Think of your company profile as the curriculum vitae (CV) of your corporation. In competitive tenders, banking reviews, investor pitches, and B2B partnerships, first impressions determine whether your business is shortlisted or overlooked. A professionally written and designed profile communicates stability, credibility, and corporate excellence.',
+        items: [
+          { label: 'Tender & Procurement Bids', text: 'Meets strict corporate and governmental submission standards with structured capabilities and certifications.' },
+          { label: 'Investor & Venture Funding', text: 'Clearly outlines your market opportunity, business model, executive leadership, and financial growth trajectory.' },
+          { label: 'Client Acquisition & Trust', text: 'Gives prospective clients an immediate, polished overview of your track record, services, and unique value proposition.' }
+        ]
+      },
+      {
+        title: 'Core Sections We Write & Design',
+        intro: 'Every business is unique. We tailor the document structure to match your exact industry and goals:',
+        items: [
+          { label: 'Executive Summary', text: 'Compelling overview of your company background, mission, vision, and core corporate values.' },
+          { label: 'Organizational Hierarchy', text: 'Custom-designed organograms and executive leadership biographies.' },
+          { label: 'Products & Capabilities', text: 'Detailed service breakdowns with clean typography, iconography, and value propositions.' },
+          { label: 'Milestones & Case Studies', text: 'Showcasing key achievements, client logos, completed projects, and awards.' },
+          { label: 'Financial Highlights', text: 'Cleanly styled revenue projections, growth statistics, and performance tables.' },
+          { label: 'CSR & Contact Details', text: 'Corporate Social Responsibility initiatives, certifications, licenses, and interactive contact info.' }
+        ]
+      },
+      {
+        title: 'Why Choose Spmdesignz?',
+        items: [
+          { label: '10+ Years of Corporate Experience', text: 'Over a decade designing high-converting corporate documents for international businesses.' },
+          { label: '100% Bespoke Custom Layouts', text: 'Never generic or cookie-cutter templates. Every page is crafted around your unique brand identity.' },
+          { label: 'Print & Digital Dual Optimization', text: 'High-res 300 DPI CMYK with bleeds for professional printing, plus lightweight interactive web PDFs.' },
+          { label: 'Fully Editable Source Files', text: 'Delivered in accessible formats like Microsoft Word (.docx), Adobe InDesign, or PowerPoint for future updates.' },
+          { label: 'Unlimited Polish & Revisions', text: 'We work closely with you until you are completely satisfied with every detail.' }
+        ]
+      },
+      {
+        title: 'What We Need to Get Started',
+        intro: 'Getting started is effortless. Simply provide whatever assets you currently have:',
+        items: [
+          { label: 'Company Logo', text: 'Vector AI, EPS, SVG, or high-resolution transparent PNG.' },
+          { label: 'Content / Draft Notes', text: 'Your existing draft, rough bullet points, website link, or notes (we can write and polish the text for you).' },
+          { label: 'Brand Guidelines', text: 'Preferred color codes and fonts (if established).' },
+          { label: 'Imagery', text: 'Photos of your team, products, or facility (or we can curate licensed high-res stock imagery).' }
+        ]
+      }
+    ],
     process: [
       { step: '1', title: 'Content & Information Ingestion', desc: 'We collect your business details, mission, vision, services, team info, and existing branding assets.' },
       { step: '2', title: 'Copywriting & Graphic Structuring', desc: 'Our team writes compelling copy, formats organograms, and crafts bespoke infographic layouts tailored to your industry.' },
@@ -94,6 +137,36 @@ export const servicesData = [
       'High-resolution transparent PNG and JPG exports',
       'Brand color palette and typography recommendations',
       'Full commercial copyrights and ownership'
+    ],
+    aboutSections: [
+      {
+        title: 'Your Visual Identity Starts With a Timeless Logo',
+        intro: 'A logo is not merely a piece of artwork—it is the foundation of your company’s entire visual language. A well-designed logo creates instant recognition, sets you apart from competitors, and establishes long-term customer trust across every medium.',
+        items: [
+          { label: 'Unforgettable First Impression', text: 'Captivate potential customers within seconds with a distinct, balanced visual mark.' },
+          { label: 'Scale Flawlessly Everywhere', text: 'Engineered as mathematical vector geometry that scales seamlessly from a mobile app favicon to billboard size without blurriness.' },
+          { label: 'Full Commercial Protection', text: '100% original designs crafted from scratch, ready for trademark registration.' }
+        ]
+      },
+      {
+        title: 'What You Receive in Our Branding Packages',
+        items: [
+          { label: 'Multiple Unique Concepts', text: 'Different creative directions sketched and digitized for you to explore and choose from.' },
+          { label: 'Complete Vector Master Pack', text: 'Includes Adobe Illustrator (AI), Scalable Vector Graphics (SVG), EPS, and print-ready PDF.' },
+          { label: 'Digital Web Exports', text: 'High-resolution transparent PNGs, high-contrast dark/light variations, and social media avatar crops.' },
+          { label: 'Brand Color Guide', text: 'Exact color breakdowns including HEX (web), RGB (screens), CMYK (print), and Pantone codes.' },
+          { label: 'Typography Guidelines', text: 'Recommended primary and secondary font pairings to keep all company communications cohesive.' }
+        ]
+      },
+      {
+        title: 'Design Aesthetics We Specialize In',
+        items: [
+          { label: 'Minimalist & Modern', text: 'Clean lines, balanced whitespace, and iconic simplicity.' },
+          { label: 'Wordmark & Monograms', text: 'Custom typographic letterforms and luxury initials.' },
+          { label: 'Geometric & Abstract', text: 'Smart visual symbols representing tech, fintech, finance, and corporate strength.' },
+          { label: 'Emblem & Heritage', text: 'Sophisticated crests and badges for real estate, automotive, legal, and hospitality.' }
+        ]
+      }
     ],
     process: [
       { step: '1', title: 'Brand Discovery', desc: 'We dive deep into your brand values, target audience, industry competitors, and preferred visual aesthetics.' },
@@ -175,6 +248,26 @@ export const servicesData = [
       'Company Profiles & Annual Reports Design',
       'PDF to Word Conversions & Editable Templates'
     ],
+    aboutSections: [
+      {
+        title: 'Elevate Every Document Your Clients & Partners Read',
+        intro: 'In business, presentation is everything. Sending a poorly formatted contract with misaligned logos or broken page numbering damages your credibility. We turn routine office collaterals into branded, high-prestige assets that inspire confidence and respect.',
+        items: [
+          { label: 'Corporate Legal Agreements', text: 'Structured sale agreements, service contracts, lease agreements, and partnership deeds with signature boxes and seal positions.' },
+          { label: 'Flawless Microsoft Word Formatting', text: 'We resolve formatting chaos, multi-section page numbering, table styling, and header/footer alignment in MS Word.' },
+          { label: 'Complete Stationery Suite', text: 'Custom letterheads, corporate invoices, receipt templates, and quotation sheets in editable formats.' }
+        ]
+      },
+      {
+        title: 'Problems We Solve in Microsoft Word (.docx)',
+        items: [
+          { label: 'Broken Section Breaks & Page Numbers', text: 'Configuring Roman numerals for front matter (i, ii, iii) and standard Arabic numerals (1, 2, 3) for body chapters.' },
+          { label: 'Misaligned Headers, Footers & Logos', text: 'Ensuring your company logo and header lines remain perfectly aligned across portrait and landscape pages.' },
+          { label: 'Unstable Formatting & Spacing', text: 'Standardizing heading styles, bullet hierarchies, margins, line spacing, and automated Table of Contents.' },
+          { label: 'PDF to Word Recreation', text: 'Converting static or scanned PDF contracts into fully editable, clean Microsoft Word documents.' }
+        ]
+      }
+    ],
     process: [
       { step: '1', title: 'Requirements & Document Ingestion', desc: 'We collect your existing logo, text draft, branding colors, and specific document specs.' },
       { step: '2', title: 'Design & Dynamic Formatting', desc: 'We design clean, professional templates or meticulously format your existing messy Word documents to perfection.' },
@@ -251,6 +344,27 @@ export const servicesData = [
       'Story and Reel background designs',
       'Highlight icons and watermark branding elements',
       'Editable Canva and Photoshop source files'
+    ],
+    aboutSections: [
+      {
+        title: 'Turn Followers Into Clients with Consistent Branding',
+        intro: 'Inconsistent graphics and low-quality posts hurt your brand credibility. A cohesive social media kit ensures that every post, story, and banner you publish immediately communicates authority and premium quality.',
+        items: [
+          { label: 'Multi-Platform Consistency', text: 'Unified color palettes, typography, and layout styling across LinkedIn, Instagram, Facebook, and YouTube.' },
+          { label: 'Editable Canva & Photoshop Templates', text: 'Drag-and-drop templates your team can easily update with new text, products, or photos in seconds.' },
+          { label: 'Higher Engagement & Click-Throughs', text: 'Eye-catching layouts engineered to stand out in crowded feeds and drive audience interaction.' }
+        ]
+      },
+      {
+        title: 'Assets Included in Your Kit',
+        items: [
+          { label: 'Profile Avatars & Watermarks', text: 'Optimized circular and square branding marks for social accounts.' },
+          { label: 'Company Cover Banners', text: 'Custom-sized header banners for LinkedIn company pages, Facebook business profiles, and YouTube channels.' },
+          { label: 'Post & Carousel Templates', text: 'Modern templates for quotes, service announcements, promotional offers, and educational carousels.' },
+          { label: 'Story & Reel Backgrounds', text: 'Vertical 9:16 templates for Instagram Stories, TikTok, and Facebook Reels.' },
+          { label: 'Highlight Cover Icons', text: 'Custom vector icons for Instagram story highlight categories.' }
+        ]
+      }
     ],
     process: [
       { step: '1', title: 'Platform Strategy', desc: 'We identify which platforms matter most to your business and define the cohesive visual aesthetic.' },
