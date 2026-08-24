@@ -1,110 +1,129 @@
 import React, { useState } from 'react';
-import { storeCategories, storePackages } from '../data/storeProducts';
-import OrderModal from '../components/OrderModal';
-import { Check, Clock, Sparkles, Shield, Zap, MessageSquare, ArrowRight, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { servicesData } from '../data/services';
+import { Star, ArrowRight, Shield, Zap, MessageSquare, Sparkles, ExternalLink, Clock, Layers } from 'lucide-react';
 import './Store.css';
 
 function Store() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [selectedPackage, setSelectedPackage] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const filteredPackages = activeCategory === 'all'
-    ? storePackages
-    : storePackages.filter(p => p.categoryId === activeCategory);
-
-  const handleOpenOrder = (pkg) => {
-    setSelectedPackage(pkg);
-    setIsModalOpen(true);
-  };
+  const filteredServices = activeCategory === 'all'
+    ? servicesData
+    : servicesData.filter(s => s.id === activeCategory);
 
   return (
     <main className="store-page">
-      {/* Hero Header */}
+      {/* Hero Section */}
       <section className="store-hero">
         <div className="container">
           <div className="store-hero-badge">
-            <Sparkles size={16} /> Transparent Pricing • Instant Order Onboarding
+            <Sparkles size={16} /> Official Service Catalog &amp; Gigs
           </div>
-          <h1>Design Packages &amp; Service Store</h1>
+          <h1>Explore Design Gigs &amp; Services</h1>
           <p className="store-hero-desc">
-            Choose a tailored design package, submit your brief &amp; files in 60 seconds, and watch our team craft your brand assets with a live countdown timer.
+            Browse our top-rated design services, compare Basic, Standard &amp; Premium packages, and get your project delivered on time with a live countdown timer.
           </p>
 
-          {/* Category Filter Pills */}
+          {/* Filter Pills */}
           <div className="store-filter-bar">
-            {storeCategories.map(cat => (
+            <button
+              className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveCategory('all')}
+            >
+              All Services
+            </button>
+            {servicesData.map(s => (
               <button
-                key={cat.id}
-                className={`filter-pill ${activeCategory === cat.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
+                key={s.id}
+                className={`filter-pill ${activeCategory === s.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(s.id)}
               >
-                {cat.name}
+                {s.title.split('&')[0].trim()}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Package Grid */}
+      {/* Gigs Catalog Grid */}
       <section className="store-grid-section container">
-        <div className="store-grid">
-          {filteredPackages.map(pkg => (
-            <div
-              key={pkg.id}
-              className={`package-card ${pkg.recommended ? 'recommended-card' : ''}`}
-            >
-              {pkg.badge && (
-                <div className="package-badge-tag">{pkg.badge}</div>
-              )}
+        <div className="gig-catalog-grid">
+          {filteredServices.map(service => {
+            const minPrice = service.packages?.basic?.price || 25;
+            const primaryImage = service.portfolioImages?.[0] || '/portfolio_flyer_design.jpg';
 
-              <div className="package-header">
-                <span className="package-cat-label">{pkg.categoryName}</span>
-                <h3 className="package-title">{pkg.title}</h3>
-                <p className="package-desc">{pkg.shortDescription}</p>
-              </div>
+            return (
+              <div key={service.id} className="gig-card">
+                {/* Image Showcase Container */}
+                <Link to={`/service/${service.id}`} className="gig-image-wrapper">
+                  <img
+                    src={primaryImage}
+                    alt={service.title}
+                    className="gig-cover-image"
+                  />
+                  <div className="gig-image-overlay">
+                    <span className="gig-overlay-badge">
+                      <Layers size={14} /> 3 Tier Packages Available
+                    </span>
+                  </div>
+                </Link>
 
-              <div className="package-price-box">
-                <div className="price-number">
-                  <span className="currency">$</span>
-                  <span className="amount">{pkg.price}</span>
-                  <span className="period">USD</span>
+                {/* Card Body */}
+                <div className="gig-card-body">
+                  {/* Seller Meta Header */}
+                  <div className="gig-seller-header">
+                    <img src="/logo.png" alt="Spmdesignz" className="gig-avatar" />
+                    <div className="gig-seller-details">
+                      <span className="gig-author-name">Spmdesignz Agency</span>
+                      <span className="gig-rating-score">
+                        <Star size={13} fill="#F4A900" color="#F4A900" /> <strong>4.9</strong> (100+ Reviews)
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title & Short Description */}
+                  <h3 className="gig-title">
+                    <Link to={`/service/${service.id}`}>{service.title}</Link>
+                  </h3>
+                  <p className="gig-summary">{service.shortDescription}</p>
+
+                  {/* Highlights Checklist */}
+                  <ul className="gig-features-list">
+                    {service.features.slice(0, 3).map((feat, idx) => (
+                      <li key={idx}>• {feat}</li>
+                    ))}
+                  </ul>
+
+                  {/* Pricing & Footer Actions */}
+                  <div className="gig-card-footer">
+                    <div className="gig-starting-price">
+                      <span className="starting-label">STARTING AT</span>
+                      <div className="price-tag">
+                        <span className="currency">$</span>
+                        <span className="val">{minPrice}</span>
+                        <span className="currency-unit">USD</span>
+                      </div>
+                    </div>
+
+                    <div className="gig-action-btns">
+                      <Link to={`/service/${service.id}`} className="btn btn-primary btn-view-gig">
+                        View Packages <ArrowRight size={15} />
+                      </Link>
+                      <a
+                        href={service.fiverrUrl || 'https://www.fiverr.com/s/rEV65Gy'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-gig-fiverr"
+                        title="View on Fiverr"
+                      >
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="delivery-time">
-                  <Clock size={15} /> {pkg.deliveryDays} Days Turnaround
-                </div>
               </div>
-
-              <div className="package-deliverables">
-                <h4>What's Included:</h4>
-                <ul>
-                  {pkg.deliverables.map((item, idx) => (
-                    <li key={idx}>
-                      <Check size={16} className="check-icon" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="package-actions">
-                <button
-                  className="btn btn-primary btn-order-direct"
-                  onClick={() => handleOpenOrder(pkg)}
-                >
-                  Order Package <ArrowRight size={16} />
-                </button>
-                <a
-                  href={pkg.fiverrLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-order-fiverr"
-                >
-                  Or Order on Fiverr <ExternalLink size={13} />
-                </a>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -113,7 +132,7 @@ function Store() {
         <div className="trust-grid">
           <div className="trust-item">
             <Shield size={32} color="var(--primary-color)" />
-            <h4>100% Money-Back Guarantee</h4>
+            <h4>100% Satisfaction Guarantee</h4>
             <p>We revise your designs until you are thrilled with the final result. Zero risk.</p>
           </div>
           <div className="trust-item">
@@ -128,13 +147,6 @@ function Store() {
           </div>
         </div>
       </section>
-
-      {/* Order Modal Component */}
-      <OrderModal
-        pkg={selectedPackage}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </main>
   );
 }
