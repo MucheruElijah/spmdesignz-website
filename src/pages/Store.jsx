@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/services';
-import { Star, ArrowRight, Shield, Zap, MessageSquare, Sparkles, ExternalLink, Clock, Layers } from 'lucide-react';
+import { Star, ArrowRight, Shield, Zap, MessageSquare, Sparkles, ExternalLink, Layers } from 'lucide-react';
 import './Store.css';
 
 function Store() {
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const filteredServices = activeCategory === 'all'
-    ? servicesData
-    : servicesData.filter(s => s.id === activeCategory);
-
   return (
     <main className="store-page">
       {/* Hero Section */}
@@ -24,22 +18,19 @@ function Store() {
             Browse our top-rated design services, compare Basic, Standard &amp; Premium packages, and get your project delivered on time with a live countdown timer.
           </p>
 
-          {/* Filter Pills */}
+          {/* Quick Navigation Pills */}
           <div className="store-filter-bar">
-            <button
-              className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('all')}
-            >
+            <Link to="/store" className="filter-pill active">
               All Services
-            </button>
+            </Link>
             {servicesData.map(s => (
-              <button
+              <Link
                 key={s.id}
-                className={`filter-pill ${activeCategory === s.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(s.id)}
+                to={`/service/${s.id}`}
+                className="filter-pill"
               >
                 {s.title.split('&')[0].trim()}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -48,7 +39,7 @@ function Store() {
       {/* Gigs Catalog Grid */}
       <section className="store-grid-section container">
         <div className="gig-catalog-grid">
-          {filteredServices.map(service => {
+          {servicesData.map(service => {
             const minPrice = service.packages?.basic?.price || 25;
             const primaryImage = service.portfolioImages?.[0] || '/portfolio_company_profile_oceanscan.jpg';
 
@@ -110,7 +101,7 @@ function Store() {
                         View Packages <ArrowRight size={15} />
                       </Link>
                       <a
-                        href={service.fiverrUrl || 'https://www.fiverr.com/s/rEV65Gy'}
+                        href={service.fiverrUrl || 'https://www.fiverr.com/spmdesignz/write-and-design-your-company-profile'}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-gig-fiverr"

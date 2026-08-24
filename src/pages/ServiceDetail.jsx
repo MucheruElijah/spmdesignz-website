@@ -93,6 +93,22 @@ function ServiceDetail() {
           </div>
         </div>
 
+        {/* Quick Service Switcher Bar */}
+        <div className="store-filter-bar service-filter-bar" style={{ justifyContent: 'flex-start', marginBottom: '1.5rem' }}>
+          <Link to="/store" className="filter-pill">
+            All Services
+          </Link>
+          {servicesData.map(s => (
+            <Link
+              key={s.id}
+              to={`/service/${s.id}`}
+              className={`filter-pill ${s.id === service.id ? 'active' : ''}`}
+            >
+              {s.title.split('&')[0].trim()}
+            </Link>
+          ))}
+        </div>
+
         {/* Page Title */}
         <h1 className="service-main-title">{service.title}</h1>
 
