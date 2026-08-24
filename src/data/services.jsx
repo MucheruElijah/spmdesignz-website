@@ -280,7 +280,7 @@ export const servicesData = [
     ],
     portfolioImages: [
       '/portfolio_agreement_branding.png',
-      '/portfolio_social_media_banners.png',
+      '/portfolio_ms_word_formatting.png',
       '/portfolio_business_plan_allstate.png'
     ],
     packages: {
