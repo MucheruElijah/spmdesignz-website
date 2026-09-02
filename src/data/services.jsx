@@ -73,8 +73,8 @@ export const servicesData = [
       { q: 'Is this suitable for corporate tender bids and investor pitches?', a: 'Yes! Our company profiles and business plans are engineered specifically to meet strict international standards for corporate procurement, banking tenders, and investor presentations.' }
     ],
     portfolioImages: [
-      '/portfolio_company_profile_oceanscan.jpg',
       '/portfolio_business_plan_allstate.png',
+      '/portfolio_company_profile_oceanscan.jpg',
       '/portfolio_financial_projections_report.png'
     ],
     packages: {
@@ -179,9 +179,9 @@ export const servicesData = [
       { q: 'How long does the logo design process take?', a: 'Initial concepts are delivered within 2-3 business days, with express 24h options available.' }
     ],
     portfolioImages: [
-      '/portfolio_logo_design.jpg',
+      '/portfolio_minimalist_logos_grid.png',
       '/portfolio_logo_design_new.png',
-      '/portfolio_company_profile_oceanscan.jpg'
+      '/portfolio_logo_design.jpg'
     ],
     packages: {
       basic: {
@@ -279,9 +279,9 @@ export const servicesData = [
       { q: 'Do you design sales agreements and realtor contracts?', a: 'Yes, we create custom branded sale agreements, lease contracts, partnership documents, and corporate policies with professional fillable fields and signature sections.' }
     ],
     portfolioImages: [
-      '/portfolio_agreement_branding.png',
+      '/portfolio_agreement_moco.png',
       '/portfolio_ms_word_formatting.png',
-      '/portfolio_business_plan_allstate.png'
+      '/portfolio_agreement_branding.png'
     ],
     packages: {
       basic: {

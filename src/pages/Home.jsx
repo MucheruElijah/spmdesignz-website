@@ -52,21 +52,21 @@ function Home() {
           <h2>Our Work</h2>
           <div className="portfolio-grid">
             <div className="portfolio-item">
-              <img src="/portfolio_company_profile_oceanscan.jpg" alt="Company Profile Design" className="placeholder-img" />
+              <img src="/portfolio_business_plan_allstate.png" alt="Company Profile & Business Plan Design" className="placeholder-img" />
               <div className="portfolio-overlay">
-                <h3>Company Profile Design</h3>
+                <h3>Company Profile &amp; Business Plan</h3>
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/portfolio_agreement_branding.png" alt="Agreement & Contract Branding" className="placeholder-img" />
+              <img src="/portfolio_agreement_moco.png" alt="Agreement & Contract Branding" className="placeholder-img" />
               <div className="portfolio-overlay">
                 <h3>Agreement &amp; Contract Branding</h3>
               </div>
             </div>
             <div className="portfolio-item">
-              <img src="/portfolio_logo_design_new.png" alt="Minimalist Logo" className="placeholder-img" />
+              <img src="/portfolio_minimalist_logos_grid.png" alt="Minimalist Logo Design" className="placeholder-img" />
               <div className="portfolio-overlay">
-                <h3>Minimalist Logo</h3>
+                <h3>Minimalist Logo Design</h3>
               </div>
             </div>
             <div className="portfolio-item">
