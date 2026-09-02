@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { servicesData } from '../data/services';
 import OrderModal from '../components/OrderModal';
+import DocumentViewerModal from '../components/DocumentViewerModal';
 import {
   ArrowLeft,
   CheckCircle2,
@@ -14,7 +15,8 @@ import {
   Star,
   ShieldCheck,
   ExternalLink,
-  MessageSquare
+  MessageSquare,
+  BookOpen
 } from 'lucide-react';
 import './ServiceDetail.css';
 import '../App.css';
@@ -27,6 +29,7 @@ function ServiceDetail() {
   const [activeTier, setActiveTier] = useState('standard'); // 'basic' | 'standard' | 'premium'
   const [openFaq, setOpenFaq] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDocViewerOpen, setIsDocViewerOpen] = useState(false);
   const [selectedOrderPackage, setSelectedOrderPackage] = useState(null);
 
   useEffect(() => {
@@ -155,6 +158,16 @@ function ServiceDetail() {
                     </div>
                   ))}
                 </div>
+              )}
+
+              {/* Multi-Page Sample Showcase Trigger Button */}
+              {service.samplePdfUrl && (
+                <button 
+                  className="view-multi-page-doc-btn"
+                  onClick={() => setIsDocViewerOpen(true)}
+                >
+                  <BookOpen size={18} /> View Interactive Multi-Page Sample Document
+                </button>
               )}
             </div>
 
@@ -341,6 +354,19 @@ function ServiceDetail() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+
+      {/* Interactive Document Viewer Modal */}
+      {service.samplePdfUrl && (
+        <DocumentViewerModal
+          isOpen={isDocViewerOpen}
+          onClose={() => setIsDocViewerOpen(false)}
+          docData={{
+            title: `${service.title} (Live Sample Showcase)`,
+            pdfUrl: service.samplePdfUrl,
+            serviceUrl: `/service/${service.id}`
+          }}
+        />
+      )}
     </div>
   );
 }

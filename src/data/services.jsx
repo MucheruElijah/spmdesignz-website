@@ -178,6 +178,7 @@ export const servicesData = [
       { q: 'What is a vector file and why do I need it?', a: 'A vector file (AI, EPS, SVG) allows your logo to be scaled infinitely to any size—from a business card to a giant billboard—without losing crisp quality.' },
       { q: 'How long does the logo design process take?', a: 'Initial concepts are delivered within 2-3 business days, with express 24h options available.' }
     ],
+    samplePdfUrl: '/samples/minimalist_logo_showcase.pdf',
     portfolioImages: [
       '/portfolio_minimalist_logos_grid.png',
       '/portfolio_logo_design_new.png',
@@ -278,6 +279,7 @@ export const servicesData = [
       { q: 'Can you fix existing messy Word documents and broken page numbering?', a: 'Absolutely! We specialize in fixing broken formatting, unaligned logos, inconsistent headers/footers, and corrupted page numbers in existing documents.' },
       { q: 'Do you design sales agreements and realtor contracts?', a: 'Yes, we create custom branded sale agreements, lease contracts, partnership documents, and corporate policies with professional fillable fields and signature sections.' }
     ],
+    samplePdfUrl: '/samples/agreement_contract_branding_showcase.pdf',
     portfolioImages: [
       '/portfolio_agreement_moco.png',
       '/portfolio_ms_word_formatting.png',

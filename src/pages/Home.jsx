@@ -22,8 +22,8 @@ function Home() {
       title: 'Agreement & Contract Branding',
       image: '/portfolio_agreement_moco.png',
       serviceUrl: '/service/office-branding',
-      pdfUrl: null,
-      hasMultiPage: false,
+      pdfUrl: '/samples/agreement_contract_branding_showcase.pdf',
+      hasMultiPage: true,
     },
     {
       id: 'logo-design',

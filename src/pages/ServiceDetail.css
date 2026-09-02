@@ -192,6 +192,32 @@
   border-color: var(--primary-color, #F4A900);
 }
 
+.view-multi-page-doc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: rgba(244, 169, 0, 0.12);
+  border: 1px dashed var(--primary-color, #F4A900);
+  border-radius: 8px;
+  color: var(--primary-color, #F4A900);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.view-multi-page-doc-btn:hover {
+  background: var(--primary-color, #F4A900);
+  color: #000;
+  border-style: solid;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 169, 0, 0.3);
+}
+
 /* Detail Sections */
 .service-detail-section h2 {
   font-size: 1.5rem;
