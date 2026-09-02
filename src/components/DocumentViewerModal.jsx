@@ -14,7 +14,8 @@ import {
   ArrowRight,
   Sparkles,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  RotateCcw
 } from 'lucide-react';
 import './DocumentViewerModal.css';
 
@@ -35,6 +36,15 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
   const containerRef = useRef(null);
   const renderTaskRef = useRef(null);
 
+  // Parse title and subtitle
+  let mainTitle = docData?.title || '';
+  let subTitle = '(Live Sample Showcase)';
+  if (mainTitle.includes('(')) {
+    const splitIndex = mainTitle.indexOf('(');
+    subTitle = mainTitle.substring(splitIndex).trim();
+    mainTitle = mainTitle.substring(0, splitIndex).trim();
+  }
+
   // Load PDF document when modal opens
   useEffect(() => {
     if (!isOpen || !docData?.pdfUrl) {
@@ -50,6 +60,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
     setLoading(true);
     setError(null);
     setCurrentPage(1);
+    setScale(1.0);
 
     const loadingTask = pdfjsLib.getDocument({
       url: docData.pdfUrl,
@@ -79,7 +90,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
     };
   }, [isOpen, docData]);
 
-  // Render active page to canvas
+  // Render active page to canvas with complete fit-to-screen calculation
   useEffect(() => {
     if (!pdfDoc || !canvasRef.current) return;
 
@@ -94,18 +105,25 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
       if (isCancelled) return;
 
       const canvas = canvasRef.current;
-      if (!canvas) return;
+      const container = containerRef.current;
+      if (!canvas || !container) return;
       const context = canvas.getContext('2d');
 
-      // Auto-fit calculation
-      const containerWidth = containerRef.current 
-        ? Math.max(containerRef.current.clientWidth - 80, 320)
-        : 800;
-        
+      // Measure viewport container
+      const paddingX = window.innerWidth <= 768 ? 20 : 60;
+      const paddingY = window.innerWidth <= 768 ? 24 : 40;
+      const availableWidth = Math.max(container.clientWidth - paddingX, 260);
+      const availableHeight = Math.max(container.clientHeight - paddingY, 260);
+
       const unscaledViewport = page.getViewport({ scale: 1.0 });
-      const fitScale = containerWidth / unscaledViewport.width;
-      const baseScale = Math.min(fitScale, 1.4);
-      const effectiveScale = baseScale * scale;
+
+      // Compute scale that fits BOTH width AND height perfectly (Zero cutting off!)
+      const scaleX = availableWidth / unscaledViewport.width;
+      const scaleY = availableHeight / unscaledViewport.height;
+      const fitScale = Math.min(scaleX, scaleY);
+      
+      // Apply user zoom multiplier on top of the 100% fit base
+      const effectiveScale = fitScale * scale;
 
       const viewport = page.getViewport({ scale: effectiveScale });
 
@@ -176,11 +194,15 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
   };
 
   const zoomIn = () => {
-    setScale((prev) => Math.min(prev + 0.2, 2.0));
+    setScale((prev) => Math.min(prev + 0.25, 2.5));
   };
 
   const zoomOut = () => {
-    setScale((prev) => Math.max(prev - 0.2, 0.7));
+    setScale((prev) => Math.max(prev - 0.25, 0.6));
+  };
+
+  const resetFit = () => {
+    setScale(1.0);
   };
 
   const toggleFullscreen = () => {
@@ -198,38 +220,44 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
       >
         {/* Header Bar */}
         <div className="doc-modal-header">
-          <div className="doc-title-info">
-            <span className="doc-badge">
-              <ShieldCheck size={14} /> View-Only Showcase Sample
-            </span>
-            <h3>{docData.title}</h3>
-          </div>
-
-          <div className="doc-header-actions">
-            {/* Zoom Controls */}
-            <div className="zoom-controls">
-              <button className="icon-btn" onClick={zoomOut} title="Zoom Out" aria-label="Zoom out">
-                <ZoomOut size={18} />
-              </button>
-              <span className="zoom-level">{Math.round(scale * 100)}%</span>
-              <button className="icon-btn" onClick={zoomIn} title="Zoom In" aria-label="Zoom in">
-                <ZoomIn size={18} />
-              </button>
+          {/* Top Row: Badge, Title & Close Button */}
+          <div className="doc-header-top">
+            <div className="doc-title-info">
+              <span className="doc-badge">
+                <ShieldCheck size={13} /> View-Only Showcase Sample
+              </span>
+              <h3 className="doc-main-title">{mainTitle}</h3>
+              <span className="doc-subtitle">{subTitle}</span>
             </div>
 
-            {/* Fullscreen Toggle */}
-            <button className="icon-btn" onClick={toggleFullscreen} title="Toggle Fullscreen" aria-label="Fullscreen">
-              {isFullscreen ? <Minimize size={18} /> : <Maximize size={18} />}
-            </button>
-
-            {/* Close Button */}
             <button className="close-btn" onClick={onClose} aria-label="Close modal">
               <X size={22} />
             </button>
           </div>
+
+          {/* Dedicated Toolbar Row for Zoom & Fullscreen directly below Title */}
+          <div className="doc-toolbar-strip">
+            <div className="zoom-controls">
+              <button className="icon-btn" onClick={zoomOut} title="Zoom Out" aria-label="Zoom out">
+                <ZoomOut size={16} />
+              </button>
+              <span className="zoom-level">{Math.round(scale * 100)}%</span>
+              <button className="icon-btn" onClick={zoomIn} title="Zoom In" aria-label="Zoom in">
+                <ZoomIn size={16} />
+              </button>
+              <button className="fit-btn" onClick={resetFit} title="Fit Entire Page to Screen">
+                <RotateCcw size={12} /> Fit
+              </button>
+            </div>
+
+            <button className="fullscreen-btn" onClick={toggleFullscreen} title="Toggle Fullscreen" aria-label="Fullscreen">
+              {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+              <span>{isFullscreen ? 'Exit' : 'Fullscreen'}</span>
+            </button>
+          </div>
         </div>
 
-        {/* Document Main Canvas Viewport */}
+        {/* Document Main Canvas Viewport (With 100% full 2D scrolling) */}
         <div className="doc-viewport" ref={containerRef}>
           {loading && (
             <div className="doc-loading">
@@ -245,7 +273,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
             </div>
           )}
 
-          {/* Navigation Chevron Left */}
+          {/* Navigation Chevron Left (Desktop) */}
           {numPages > 1 && !loading && (
             <button 
               className={`doc-nav-arrow arrow-left ${currentPage === 1 ? 'disabled' : ''}`}
@@ -253,11 +281,11 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
               disabled={currentPage === 1}
               aria-label="Previous Page"
             >
-              <ChevronLeft size={32} />
+              <ChevronLeft size={30} />
             </button>
           )}
 
-          {/* Canvas Wrapper with Anti-theft Watermark Overlay */}
+          {/* Canvas Wrapper with margin: auto for non-clipped scrolling */}
           <div className={`canvas-wrapper ${loading || error ? 'hidden' : ''}`}>
             <canvas ref={canvasRef} className="doc-canvas" />
             <div className="doc-watermark-overlay" aria-hidden="true">
@@ -265,7 +293,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
             </div>
           </div>
 
-          {/* Navigation Chevron Right */}
+          {/* Navigation Chevron Right (Desktop) */}
           {numPages > 1 && !loading && (
             <button 
               className={`doc-nav-arrow arrow-right ${currentPage === numPages ? 'disabled' : ''}`}
@@ -273,16 +301,36 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
               disabled={currentPage === numPages}
               aria-label="Next Page"
             >
-              <ChevronRight size={32} />
+              <ChevronRight size={30} />
             </button>
           )}
         </div>
 
         {/* Footer Navigation & CTA Bar */}
         <div className="doc-modal-footer">
-          {/* Page Counter Indicator */}
-          <div className="page-counter-badge">
-            Page <strong>{currentPage}</strong> of <strong>{numPages || 1}</strong>
+          {/* Mobile & Desktop Page Controls */}
+          <div className="footer-nav-controls">
+            <button 
+              className="footer-nav-btn"
+              onClick={goToPrev}
+              disabled={currentPage === 1}
+              aria-label="Previous Page"
+            >
+              <ChevronLeft size={16} /> Prev
+            </button>
+
+            <div className="page-counter-badge">
+              Page <strong>{currentPage}</strong> of <strong>{numPages || 1}</strong>
+            </div>
+
+            <button 
+              className="footer-nav-btn"
+              onClick={goToNext}
+              disabled={currentPage === numPages}
+              aria-label="Next Page"
+            >
+              Next <ChevronRight size={16} />
+            </button>
           </div>
 
           {/* Thumbnail Dots / Jump to page */}

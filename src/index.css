@@ -130,6 +130,12 @@ nav {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0.9rem 1.25rem;
+  }
+}
+
 .logo {
   font-family: var(--font-heading);
   font-size: 1.5rem;

@@ -46,7 +46,8 @@ function Home() {
   const handlePortfolioClick = (item) => {
     if (item.pdfUrl) {
       setSelectedDoc({
-        title: `${item.title} (Live Sample Showcase)`,
+        title: item.title,
+        subtitle: '(Live Sample Showcase)',
         pdfUrl: item.pdfUrl,
         serviceUrl: item.serviceUrl
       });

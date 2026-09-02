@@ -361,7 +361,8 @@ function ServiceDetail() {
           isOpen={isDocViewerOpen}
           onClose={() => setIsDocViewerOpen(false)}
           docData={{
-            title: `${service.title} (Live Sample Showcase)`,
+            title: service.title,
+            subtitle: '(Live Sample Showcase)',
             pdfUrl: service.samplePdfUrl,
             serviceUrl: `/service/${service.id}`
           }}
