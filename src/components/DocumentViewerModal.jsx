@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
+import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { 
   X, 
   ChevronLeft, 
@@ -12,12 +13,13 @@ import {
   ShieldCheck, 
   ArrowRight,
   Sparkles,
-  Loader2
+  Loader2,
+  AlertCircle
 } from 'lucide-react';
 import './DocumentViewerModal.css';
 
-// Set up pdf.js worker using unpkg
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+// Configure bundled local worker via Vite ?url
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function DocumentViewerModal({ isOpen, onClose, docData }) {
   const [pdfDoc, setPdfDoc] = useState(null);
@@ -25,6 +27,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
   const [numPages, setNumPages] = useState(0);
   const [scale, setScale] = useState(1.0);
   const [loading, setLoading] = useState(true);
+  const [pageRendering, setPageRendering] = useState(false);
   const [error, setError] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -32,46 +35,57 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
   const containerRef = useRef(null);
   const renderTaskRef = useRef(null);
 
+  // Load PDF document when modal opens
   useEffect(() => {
     if (!isOpen || !docData?.pdfUrl) {
       setPdfDoc(null);
       setCurrentPage(1);
       setScale(1.0);
       setLoading(false);
+      setError(null);
       return;
     }
 
+    let isMounted = true;
     setLoading(true);
     setError(null);
     setCurrentPage(1);
 
-    const loadingTask = pdfjsLib.getDocument(docData.pdfUrl);
+    const loadingTask = pdfjsLib.getDocument({
+      url: docData.pdfUrl,
+      cMapUrl: 'https://unpkg.com/pdfjs-dist@' + pdfjsLib.version + '/cmaps/',
+      cMapPacked: true,
+    });
+
     loadingTask.promise
       .then((pdf) => {
+        if (!isMounted) return;
         setPdfDoc(pdf);
         setNumPages(pdf.numPages);
         setLoading(false);
       })
       .catch((err) => {
+        if (!isMounted) return;
         console.error('Error loading PDF:', err);
-        setError('Failed to load document sample.');
+        setError('Unable to display preview. Please try again.');
         setLoading(false);
       });
 
     return () => {
+      isMounted = false;
       if (loadingTask) {
         loadingTask.destroy();
       }
     };
   }, [isOpen, docData]);
 
-  // Render current page onto canvas
+  // Render active page to canvas
   useEffect(() => {
     if (!pdfDoc || !canvasRef.current) return;
 
     let isCancelled = false;
+    setPageRendering(true);
 
-    // Cancel any ongoing render task
     if (renderTaskRef.current) {
       renderTaskRef.current.cancel();
     }
@@ -83,15 +97,19 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
       if (!canvas) return;
       const context = canvas.getContext('2d');
 
-      // Determine viewport scale based on container width or selected scale
-      const containerWidth = containerRef.current ? containerRef.current.clientWidth - 40 : 800;
-      const unscaledViewport = page.getViewport({ scale: 1 });
-      const baseScale = Math.min((containerWidth / unscaledViewport.width), 1.6);
+      // Auto-fit calculation
+      const containerWidth = containerRef.current 
+        ? Math.max(containerRef.current.clientWidth - 80, 320)
+        : 800;
+        
+      const unscaledViewport = page.getViewport({ scale: 1.0 });
+      const fitScale = containerWidth / unscaledViewport.width;
+      const baseScale = Math.min(fitScale, 1.4);
       const effectiveScale = baseScale * scale;
 
       const viewport = page.getViewport({ scale: effectiveScale });
 
-      // Support high DPI displays
+      // High DPI crisp rendering
       const outputScale = window.devicePixelRatio || 1;
       canvas.width = Math.floor(viewport.width * outputScale);
       canvas.height = Math.floor(viewport.height * outputScale);
@@ -112,10 +130,14 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
       renderTaskRef.current = renderTask;
 
       renderTask.promise
+        .then(() => {
+          if (!isCancelled) setPageRendering(false);
+        })
         .catch((err) => {
           if (err.name !== 'RenderingCancelledException') {
             console.error('Page render error:', err);
           }
+          if (!isCancelled) setPageRendering(false);
         });
     });
 
@@ -211,19 +233,20 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
         <div className="doc-viewport" ref={containerRef}>
           {loading && (
             <div className="doc-loading">
-              <Loader2 className="spinner" size={36} />
+              <Loader2 className="spinner" size={40} />
               <p>Loading multi-page sample showcase...</p>
             </div>
           )}
 
           {error && (
             <div className="doc-error">
+              <AlertCircle size={32} color="#ef4444" />
               <p>{error}</p>
             </div>
           )}
 
           {/* Navigation Chevron Left */}
-          {numPages > 1 && (
+          {numPages > 1 && !loading && (
             <button 
               className={`doc-nav-arrow arrow-left ${currentPage === 1 ? 'disabled' : ''}`}
               onClick={goToPrev}
@@ -235,7 +258,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
           )}
 
           {/* Canvas Wrapper with Anti-theft Watermark Overlay */}
-          <div className="canvas-wrapper">
+          <div className={`canvas-wrapper ${loading || error ? 'hidden' : ''}`}>
             <canvas ref={canvasRef} className="doc-canvas" />
             <div className="doc-watermark-overlay" aria-hidden="true">
               <div className="watermark-text">SPMDESIGNZ • PORTFOLIO SHOWCASE</div>
@@ -243,7 +266,7 @@ export default function DocumentViewerModal({ isOpen, onClose, docData }) {
           </div>
 
           {/* Navigation Chevron Right */}
-          {numPages > 1 && (
+          {numPages > 1 && !loading && (
             <button 
               className={`doc-nav-arrow arrow-right ${currentPage === numPages ? 'disabled' : ''}`}
               onClick={goToNext}
