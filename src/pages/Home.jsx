@@ -65,12 +65,47 @@ function Home() {
             <h1>Your <i>Premier</i> Design <span>Agency.</span></h1>
             <p>We are the creative force behind striking brand identities. We craft professional company profiles, executive business plans, custom logos, and branded corporate collaterals that elevate businesses and win high-value clients.</p>
             
-            <ul className="hero-list">
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Company Profiles &amp; Business Plans</strong> — High-impact documents that win tenders &amp; investments</li>
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Custom Logo Design</strong> — Memorable visual identities crafted with Adobe Creative Suite</li>
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Office Branding &amp; MS Word</strong> — Flawless corporate documents &amp; formatted agreements</li>
-              <li><CheckCircle2 size={20} color="#F4A900" /> <strong>Social Media Ready</strong> kits to boost your engagement</li>
-            </ul>
+            <div className="hero-features-list">
+              <div className="hero-feature-item">
+                <div className="feature-icon-wrapper">
+                  <CheckCircle2 size={16} color="#F4A900" />
+                </div>
+                <div className="feature-text">
+                  <span className="feature-title">Company Profiles &amp; Business Plans</span>
+                  <span className="feature-desc">High-impact documents that win tenders &amp; investments</span>
+                </div>
+              </div>
+
+              <div className="hero-feature-item">
+                <div className="feature-icon-wrapper">
+                  <CheckCircle2 size={16} color="#F4A900" />
+                </div>
+                <div className="feature-text">
+                  <span className="feature-title">Custom Logo Design</span>
+                  <span className="feature-desc">Memorable visual identities crafted with Adobe Creative Suite</span>
+                </div>
+              </div>
+
+              <div className="hero-feature-item">
+                <div className="feature-icon-wrapper">
+                  <CheckCircle2 size={16} color="#F4A900" />
+                </div>
+                <div className="feature-text">
+                  <span className="feature-title">Office Branding &amp; MS Word</span>
+                  <span className="feature-desc">Flawless corporate documents &amp; formatted agreements</span>
+                </div>
+              </div>
+
+              <div className="hero-feature-item">
+                <div className="feature-icon-wrapper">
+                  <CheckCircle2 size={16} color="#F4A900" />
+                </div>
+                <div className="feature-text">
+                  <span className="feature-title">Social Media Kits &amp; Banners</span>
+                  <span className="feature-desc">Cohesive multi-platform graphics to boost engagement</span>
+                </div>
+              </div>
+            </div>
 
             <div className="hero-buttons">
               <a href="#contact" className="btn" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Zap size={18} /> GET INSTANT QUOTE <ArrowRight size={18} /></a>
