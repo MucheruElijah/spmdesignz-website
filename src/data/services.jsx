@@ -378,6 +378,7 @@ export const servicesData = [
       { q: 'Are the post templates editable?', a: 'Yes! We provide templates in Canva or Photoshop so your team can easily update text and images in seconds.' },
       { q: 'Do you provide cover banners for LinkedIn and Facebook?', a: 'Yes, our Standard and Premium packages include perfectly formatted header banners for your company pages and personal profiles.' }
     ],
+    samplePdfUrl: '/samples/social_media_banners_showcase.pdf',
     portfolioImages: [
       '/portfolio_social_media_banners.png',
       '/portfolio_agreement_branding.png',

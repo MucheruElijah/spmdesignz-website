@@ -38,8 +38,8 @@ function Home() {
       title: 'Social Campaign & Banners',
       image: '/portfolio_social_media_banners.png',
       serviceUrl: '/service/social-media-kits',
-      pdfUrl: null,
-      hasMultiPage: false,
+      pdfUrl: '/samples/social_media_banners_showcase.pdf',
+      hasMultiPage: true,
     }
   ];
 
