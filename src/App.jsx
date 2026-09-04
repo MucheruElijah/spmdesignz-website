@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { Menu, X, MapPin, Phone, Mail, ShoppingBag } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp, FaBehance } from 'react-icons/fa';
 import Home from './pages/Home';
@@ -82,6 +82,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/service/:id" element={<ServiceDetail />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <footer className="site-footer">
         <div className="container footer-grid">
