@@ -31,10 +31,12 @@ function Blog() {
         </div>
 
         <div className="blog-grid">
-          {posts.map(post => {
-            const imageUrl = getFirstImage(post.content);
-            const excerpt = getPlainTextExcerpt(post.content);
-            const postId = post.slug || post.id.split('-').pop();
+          {posts
+            .filter(post => new Date(post.published) <= new Date())
+            .map(post => {
+              const imageUrl = getFirstImage(post.content);
+              const excerpt = getPlainTextExcerpt(post.content);
+              const postId = post.slug || post.id.split('-').pop();
 
             return (
               <article key={post.id} className="blog-card">

@@ -101,7 +101,9 @@ function BlogPost() {
   }
 
   // Derived Data
-  const otherPosts = posts.filter(p => p !== post).slice(0, 3);
+  const otherPosts = posts
+    .filter(p => p !== post && new Date(p.published) <= new Date())
+    .slice(0, 3);
   const heroImage = getFirstImage(post.content);
   const fullPlainText = getPlainTextExcerpt(post.content, 999999);
   const wordCount = fullPlainText.split(' ').length;
