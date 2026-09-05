@@ -23,7 +23,7 @@ function getPlainTextExcerpt(htmlContent, maxLength = 130) {
 
 function BlogPost() {
   const { id } = useParams();
-  const post = posts.find(p => p.id.endsWith(id));
+  const post = posts.find(p => (p.slug && p.slug === id) || p.id.endsWith(id));
   const [headings, setHeadings] = useState([]);
 
   const processedContent = useMemo(() => {
@@ -67,6 +67,9 @@ function BlogPost() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (post?.title) {
+      document.title = `${post.title} | Spmdesignz`;
+    }
 
     // Extract Headings for Table of Contents
     const timer = setTimeout(() => {
@@ -86,7 +89,7 @@ function BlogPost() {
     }, 100); // Small delay to ensure HTML is injected
 
     return () => clearTimeout(timer);
-  }, [id, processedContent]);
+  }, [id, processedContent, post?.title]);
 
   if (!post) {
     return (
@@ -98,7 +101,7 @@ function BlogPost() {
   }
 
   // Derived Data
-  const otherPosts = posts.filter(p => !p.id.endsWith(id)).slice(0, 3);
+  const otherPosts = posts.filter(p => p !== post).slice(0, 3);
   const heroImage = getFirstImage(post.content);
   const fullPlainText = getPlainTextExcerpt(post.content, 999999);
   const wordCount = fullPlainText.split(' ').length;

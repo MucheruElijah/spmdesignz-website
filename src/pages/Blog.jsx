@@ -34,7 +34,7 @@ function Blog() {
           {posts.map(post => {
             const imageUrl = getFirstImage(post.content);
             const excerpt = getPlainTextExcerpt(post.content);
-            const postId = post.id.split('-').pop();
+            const postId = post.slug || post.id.split('-').pop();
 
             return (
               <article key={post.id} className="blog-card">
