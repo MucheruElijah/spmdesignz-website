@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { servicesData } from '../data/services';
 import OrderModal from '../components/OrderModal';
 import DocumentViewerModal from '../components/DocumentViewerModal';
+import { trackLead, trackEvent } from '../utils/analytics';
 import {
   ArrowLeft,
   CheckCircle2,
@@ -64,6 +65,12 @@ function ServiceDetail() {
   };
 
   const handleOpenOrder = () => {
+    trackEvent('begin_checkout', {
+      service: service.title,
+      tier: activeTier,
+      price: currentPkg.price,
+      currency: 'USD'
+    });
     setSelectedOrderPackage({
       id: `${service.id}-${activeTier}`,
       categoryId: service.id,
@@ -329,6 +336,12 @@ function ServiceDetail() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-order-fiverr-link"
+                    onClick={() => trackLead('fiverr', {
+                      service: service.title,
+                      tier: activeTier,
+                      price: currentPkg.price,
+                      location: 'service_pricing_box'
+                    })}
                   >
                     Order via Fiverr Escrow <ExternalLink size={13} />
                   </a>

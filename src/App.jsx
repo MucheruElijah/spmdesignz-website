@@ -8,6 +8,7 @@ import BlogPost from './pages/BlogPost';
 import ServiceDetail from './pages/ServiceDetail';
 import Store from './pages/Store';
 import OrderTracking from './pages/OrderTracking';
+import { trackLead } from './utils/analytics';
 import './App.css';
 
 function ScrollToHash() {
@@ -126,16 +127,16 @@ function App() {
               <li>
                 <Phone size={18} className="contact-icon" />
                 <span>
-                  <a href="tel:0738280809">0738 280 809</a> / <a href="tel:0770223001">0770 223 001</a>
+                  <a href="tel:0738280809" onClick={() => trackLead('phone', { location: 'footer' })}>0738 280 809</a> / <a href="tel:0770223001" onClick={() => trackLead('phone', { location: 'footer' })}>0770 223 001</a>
                 </span>
               </li>
               <li>
                 <Mail size={18} className="contact-icon" />
-                <a href="mailto:info@spmdesignz.com">info@spmdesignz.com</a>
+                <a href="mailto:info@spmdesignz.com" onClick={() => trackLead('email', { location: 'footer' })}>info@spmdesignz.com</a>
               </li>
               <li>
                 <FaWhatsapp size={18} className="contact-icon whatsapp-icon" />
-                <a href="https://wa.me/254738280809" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                <a href="https://wa.me/254738280809" target="_blank" rel="noopener noreferrer" onClick={() => trackLead('whatsapp', { location: 'footer' })}>WhatsApp Us</a>
               </li>
             </ul>
           </div>

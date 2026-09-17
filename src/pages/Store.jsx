@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/services';
 import { Star, ArrowRight, Shield, Zap, MessageSquare, Sparkles, ExternalLink, Layers } from 'lucide-react';
+import { trackLead } from '../utils/analytics';
 import './Store.css';
 
 function Store() {
@@ -106,6 +107,10 @@ function Store() {
                         rel="noopener noreferrer"
                         className="btn-gig-fiverr"
                         title="View on Fiverr"
+                        onClick={() => trackLead('fiverr', {
+                          location: 'store_card',
+                          service: service.title
+                        })}
                       >
                         <ExternalLink size={14} />
                       </a>

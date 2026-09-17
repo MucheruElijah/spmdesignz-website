@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Clock, CheckCircle2, AlertCircle, FileText, ArrowLeft, Search, MessageSquare, Mail, ShieldCheck, Download } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { trackLead } from '../utils/analytics';
 import './OrderTracking.css';
 
 function OrderTracking() {
@@ -232,6 +233,10 @@ function OrderTracking() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-whatsapp-direct"
+                    onClick={() => trackLead('whatsapp', {
+                      location: 'order_tracking',
+                      order_id: order.orderId
+                    })}
                   >
                     <FaWhatsapp size={20} /> Chat on WhatsApp
                   </a>
@@ -239,6 +244,10 @@ function OrderTracking() {
                   <a
                     href={`mailto:mucheru@spmdesignz.com?subject=Update%20on%20Order%20${order.orderId}`}
                     className="btn btn-email-direct"
+                    onClick={() => trackLead('email', {
+                      location: 'order_tracking',
+                      order_id: order.orderId
+                    })}
                   >
                     <Mail size={18} /> Email Designer
                   </a>

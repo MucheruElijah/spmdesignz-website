@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, CheckCircle2, Upload, FileText, Clock, ShieldCheck, ArrowRight, ArrowLeft, AlertCircle } from 'lucide-react';
+import { trackLead } from '../utils/analytics';
 import './OrderModal.css';
 
 function OrderModal({ pkg, isOpen, onClose }) {
@@ -157,6 +158,16 @@ function OrderModal({ pkg, isOpen, onClose }) {
     } catch (err) {
       console.warn('Web3Forms background send notice:', err);
     }
+
+    // Track conversion event in GA4
+    trackLead('direct_order', {
+      order_id: orderId,
+      service: pkg.categoryName,
+      package: pkg.title,
+      value: totalPrice,
+      currency: 'USD',
+      is_express: isExpress
+    });
 
     setIsSubmitting(false);
     onClose();
@@ -395,7 +406,17 @@ function OrderModal({ pkg, isOpen, onClose }) {
               <ArrowLeft size={16} /> Back
             </button>
           ) : (
-            <a href={pkg.fiverrLink} target="_blank" rel="noopener noreferrer" className="btn-fiverr-link">
+            <a
+              href={pkg.fiverrLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-fiverr-link"
+              onClick={() => trackLead('fiverr', {
+                location: 'order_modal',
+                service: pkg.categoryName,
+                package: pkg.title
+              })}
+            >
               Prefer Fiverr? Order There
             </a>
           )}

@@ -3,6 +3,7 @@ import { PenTool, Layout, Image as ImageIcon, Share2, Star, Quote, CheckCircle2,
 import { Link, useNavigate } from 'react-router-dom';
 import { servicesData } from '../data/services';
 import DocumentViewerModal from '../components/DocumentViewerModal';
+import { trackLead, trackEvent } from '../utils/analytics';
 
 function Home() {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ function Home() {
   ];
 
   const handlePortfolioClick = (item) => {
+    trackEvent('view_portfolio', { item_name: item.title, has_pdf: !!item.pdfUrl });
     if (item.pdfUrl) {
       setSelectedDoc({
         title: item.title,
@@ -239,7 +241,14 @@ function Home() {
           </div>
           
           <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <a href="https://www.fiverr.com/s/rEV65Gy" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            <a
+              href="https://www.fiverr.com/s/rEV65Gy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+              onClick={() => trackLead('fiverr', { location: 'home_testimonials' })}
+            >
               Hire us on Fiverr <ArrowRight size={20} />
             </a>
           </div>
@@ -263,7 +272,15 @@ function Home() {
         <div className="container">
           <h2>Get In Touch</h2>
           <div className="contact-container">
-            <form className="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <form
+              className="contact-form"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              onSubmit={(e) => {
+                const serviceVal = e.target.elements && e.target.elements.service ? e.target.elements.service.value : 'General';
+                trackLead('contact_form', { service_requested: serviceVal, location: 'home_contact_form' });
+              }}
+            >
               <input type="hidden" name="access_key" value="7386573a-d118-4d03-b241-c3603ebc3a25" />
               <input type="hidden" name="subject" value="New Quote Request from Spmdesignz Website" />
               <div className="form-group">
