@@ -1,29 +1,17 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import posts from '../data/blogPosts.json';
+import {
+  getPublishedPosts,
+  findPostByIdOrSlug,
+  getHeroImage,
+  getPlainTextExcerpt,
+} from '../utils/blogLoader';
 import { ArrowLeft, Calendar, ArrowRight, Clock, Share2, Link as LinkIcon } from 'lucide-react';
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
-function getFirstImage(htmlContent) {
-  if (!htmlContent) return '/portfolio_company_profile_oceanscan.jpg';
-  const match = htmlContent.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : '/portfolio_company_profile_oceanscan.jpg';
-}
-
-function getPlainTextExcerpt(htmlContent, maxLength = 130) {
-  if (!htmlContent) return '';
-  let text = htmlContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-  text = text.replace(/<[^>]+>/g, ' ');
-  text = text.replace(/\s+/g, ' ').trim();
-  if (text.length > maxLength) {
-    return text.substring(0, maxLength) + '...';
-  }
-  return text;
-}
-
 function BlogPost() {
   const { id } = useParams();
-  const post = posts.find(p => (p.slug && p.slug === id) || p.id.endsWith(id));
+  const post = findPostByIdOrSlug(id);
   const [headings, setHeadings] = useState([]);
 
   const processedContent = useMemo(() => {
@@ -31,7 +19,7 @@ function BlogPost() {
     const parser = new DOMParser();
     const doc = parser.parseFromString(post.content, 'text/html');
     const firstImg = doc.querySelector('img');
-    if (firstImg) {
+    if (firstImg && (!post.featuredImage || firstImg.getAttribute('src') === post.featuredImage)) {
       let elementToRemove = firstImg;
       if (elementToRemove.parentElement && elementToRemove.parentElement.tagName === 'A') {
         elementToRemove = elementToRemove.parentElement;
@@ -63,12 +51,18 @@ function BlogPost() {
     });
 
     return doc.body.innerHTML;
-  }, [post?.content]);
+  }, [post?.content, post?.featuredImage]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     if (post?.title) {
       document.title = `${post.title} | Spmdesignz`;
+    }
+    if (post?.metaDescription) {
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', post.metaDescription);
+      }
     }
 
     // Extract Headings for Table of Contents
@@ -89,7 +83,7 @@ function BlogPost() {
     }, 100); // Small delay to ensure HTML is injected
 
     return () => clearTimeout(timer);
-  }, [id, processedContent, post?.title]);
+  }, [id, processedContent, post?.title, post?.metaDescription]);
 
   if (!post) {
     return (
@@ -101,10 +95,10 @@ function BlogPost() {
   }
 
   // Derived Data
-  const otherPosts = posts
-    .filter(p => p !== post && new Date(p.published) <= new Date())
+  const otherPosts = getPublishedPosts()
+    .filter(p => p.id !== post.id)
     .slice(0, 3);
-  const heroImage = getFirstImage(post.content);
+  const heroImage = getHeroImage(post);
   const fullPlainText = getPlainTextExcerpt(post.content, 999999);
   const wordCount = fullPlainText.split(' ').length;
   const readTime = Math.max(1, Math.ceil(wordCount / 200));
@@ -130,7 +124,7 @@ function BlogPost() {
           <div className="blog-hero-grid">
             <div className="blog-hero-content">
               <Link to="/blog" className="blog-hero-back">
-                <ArrowLeft size={16} /> Back to Blog <span className="blog-hero-category">| Design & Branding</span>
+                <ArrowLeft size={16} /> Back to Blog <span className="blog-hero-category">| {post.category || 'Design & Branding'}</span>
               </Link>
               <h1 className="blog-hero-title">{post.title}</h1>
               <div className="blog-hero-meta">
@@ -218,9 +212,9 @@ function BlogPost() {
             <h2 style={{ color: '#fff', fontSize: '2rem', marginBottom: '2.5rem' }}>More Articles to Read</h2>
             <div className="blog-grid">
               {otherPosts.map(otherPost => {
-                const img = getFirstImage(otherPost.content);
-                const excerpt = getPlainTextExcerpt(otherPost.content);
-                const otherPostId = otherPost.id.split('-').pop();
+                const img = getHeroImage(otherPost);
+                const excerpt = otherPost.metaDescription || getPlainTextExcerpt(otherPost.content);
+                const otherPostId = otherPost.slug || otherPost.id.split('-').pop();
 
                 return (
                   <article key={otherPost.id} className="blog-card">

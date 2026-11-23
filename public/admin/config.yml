@@ -1,0 +1,72 @@
+backend:
+  name: github
+  repo: MucheruElijah/spmdesignz-website
+  branch: main
+  base_url: https://spmdesignz.com
+  auth_endpoint: api/auth
+
+local_backend: true
+
+media_folder: "public/blog"
+public_folder: "/blog"
+
+site_url: https://spmdesignz.com
+display_url: https://spmdesignz.com
+logo_url: /logo.png
+
+collections:
+  - name: "blog"
+    label: "Blog Articles"
+    label_singular: "Blog Article"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} ({{published | date('YYYY-MM-DD')}})"
+    sortable_fields: ["published", "title"]
+    fields:
+      - { label: "Article Title", name: "title", widget: "string", required: true }
+      - {
+          label: "URL Slug",
+          name: "slug",
+          widget: "string",
+          required: false,
+          hint: "Leave blank to auto-generate from the title (e.g. executive-company-profile-guide). Changing this on old posts changes their URL.",
+        }
+      - { label: "Publish Date", name: "published", widget: "datetime", required: true }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "Design & Branding",
+              "Company Profiles",
+              "MS Word & Documents",
+              "Business Strategy",
+              "Contracts & Legal",
+            ],
+          default: "Design & Branding",
+        }
+      - {
+          label: "Featured Hero Image",
+          name: "featuredImage",
+          widget: "image",
+          required: false,
+          hint: "Upload or choose a hero image (recommended 1200x900 or 4:3 aspect ratio).",
+        }
+      - {
+          label: "SEO Meta Description",
+          name: "metaDescription",
+          widget: "text",
+          required: false,
+          hint: "Short 140-160 character summary for Google search results and blog cards.",
+        }
+      - {
+          label: "Save as Draft (Hide from Public Blog)",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+        }
+      - { label: "Article Content", name: "body", widget: "markdown", required: true }

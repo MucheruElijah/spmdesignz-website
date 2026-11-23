@@ -1,27 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import posts from '../data/blogPosts.json';
+import { getPublishedPosts, getHeroImage, getPlainTextExcerpt } from '../utils/blogLoader';
 import { Calendar, ArrowRight } from 'lucide-react';
 
-function getFirstImage(htmlContent) {
-  if (!htmlContent) return '/portfolio_company_profile_oceanscan.jpg';
-  const match = htmlContent.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : '/portfolio_company_profile_oceanscan.jpg';
-}
-
-function getPlainTextExcerpt(htmlContent, maxLength = 130) {
-  if (!htmlContent) return '';
-  // Strip script tags and HTML tags
-  let text = htmlContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-  text = text.replace(/<[^>]+>/g, ' ');
-  text = text.replace(/\s+/g, ' ').trim();
-  if (text.length > maxLength) {
-    return text.substring(0, maxLength) + '...';
-  }
-  return text;
-}
-
 function Blog() {
+  const posts = getPublishedPosts();
+
   return (
     <main className="blog-page">
       <section className="container" style={{ paddingTop: '150px', paddingBottom: '100px', minHeight: '80vh' }}>
@@ -31,12 +15,10 @@ function Blog() {
         </div>
 
         <div className="blog-grid">
-          {posts
-            .filter(post => new Date(post.published) <= new Date())
-            .map(post => {
-              const imageUrl = getFirstImage(post.content);
-              const excerpt = getPlainTextExcerpt(post.content);
-              const postId = post.slug || post.id.split('-').pop();
+          {posts.map(post => {
+            const imageUrl = getHeroImage(post);
+            const excerpt = post.metaDescription || getPlainTextExcerpt(post.content);
+            const postId = post.slug || post.id.split('-').pop();
 
             return (
               <article key={post.id} className="blog-card">
