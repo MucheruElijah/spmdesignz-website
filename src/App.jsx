@@ -15,6 +15,18 @@ function ScrollToHash() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
+    const canonicalUrl = `https://spmdesignz.com${cleanPath}`;
+
+    const canonicalEl = document.querySelector('link[rel="canonical"]');
+    if (canonicalEl) canonicalEl.setAttribute('href', canonicalUrl);
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+    const twUrl = document.querySelector('meta[property="twitter:url"]');
+    if (twUrl) twUrl.setAttribute('content', canonicalUrl);
+
     if (hash) {
       setTimeout(() => {
         const element = document.getElementById(hash.replace('#', ''));
